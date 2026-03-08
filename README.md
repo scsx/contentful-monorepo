@@ -54,4 +54,7 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 		
 		    types/
 		      generate-types.ts
+
+				content/
+			    create-dummy-content.ts
 ```          
