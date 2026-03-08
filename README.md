@@ -32,7 +32,7 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 │   │ 			Schema as code; content model source of truth; schemaVersion (1)
 │   │       Taxonomy
 │   │
-│   ├── 3.2 cms-types/           
+│   ├── 3.2 types/           
 │   │       Generated TypeScript types [reads from 3.1]
 │   │
 │   ├── 3.3 ui/                  
