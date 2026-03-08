@@ -3,7 +3,7 @@
 This monorepo is a structured CMS-as-Code platform that centralizes Contentful schema management, shared design tokens, and application logic in a single repository. It separates responsibilities into frontend applications (e.g., Next.js site and Contentful App), shared packages (content models, generated TypeScript types, UI components, design tokens), and automation scripts for schema synchronization, comparison, and content migrations. The content model is treated as a versioned snapshot stored in Git, with environments synchronized via controlled apply scripts, while runtime content remains managed inside Contentful. This setup ensures consistency, reproducibility, and governance across multiple environments without sacrificing editorial flexibility.
 
 ## Structure
-
+```
 0.0 Contentful
 
 1.0 repo/
@@ -54,3 +54,4 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 		
 		    types/
 		      generate-types.ts
+```          
