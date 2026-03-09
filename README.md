@@ -33,7 +33,7 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 │   │       Taxonomy
 │   │
 │   ├── 3.2 types/           
-│   │       Generated TypeScript types [reads from 3.1]
+│   │       Generated TypeScript types
 │   │
 │   ├── 3.3 ui/                  
 │   │       Shared UI components [reads from 3.2]
@@ -53,8 +53,10 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 		      sync-taxonomy.ts
 		
 		    types/
-		      generate-types.ts
-
-				content/
-			    create-dummy-content.ts
+		      generate-types.ts [reads from 3.1] [writes to 3.2]
+		      
+		    content/
+			    create-dummy-blog-posts.ts
+			    create-dummy-dynamic-page.ts
+			    etc... (content tests)
 ```          
