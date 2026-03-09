@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 type RouteNode = {
   name: string
@@ -11,15 +14,25 @@ type Props = {
 }
 
 const RenderRoutes = ({ routes }: { routes: RouteNode[] }) => {
+  const pathname = usePathname()
+
   return (
     <ul>
-      {routes.map((route) => (
-        <li key={route.path}>
-          <Link href={route.path}>{route.name}</Link>
+      {routes.map((route) => {
+        const isActive = pathname === route.path
 
-          {route.children && route.children.length > 0 && <RenderRoutes routes={route.children} />}
-        </li>
-      ))}
+        return (
+          <li key={route.path}>
+            <Link href={route.path} className={isActive ? 'bg-yellow' : ''}>
+              {route.name}
+            </Link>
+
+            {route.children && route.children.length > 0 && (
+              <RenderRoutes routes={route.children} />
+            )}
+          </li>
+        )
+      })}
     </ul>
   )
 }

@@ -9,9 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@repo/cms-models": "workspace:*",
     "@contentful/f36-components": "^6.7.1",
+    "@contentful/f36-icons": "^6.7.1",
     "@contentful/f36-tokens": "^6.1.2",
+    "@repo/cms-models": "workspace:*",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"

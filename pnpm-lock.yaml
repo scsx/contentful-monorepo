@@ -27,6 +27,9 @@ importers:
       '@contentful/f36-components':
         specifier: ^6.7.1
         version: 6.7.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@contentful/f36-icons':
+        specifier: ^6.7.1
+        version: 6.7.1(@types/react@19.2.14)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@contentful/f36-tokens':
         specifier: ^6.1.2
         version: 6.1.2

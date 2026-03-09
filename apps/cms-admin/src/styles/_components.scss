@@ -15,7 +15,7 @@
 
   .nav {
     border-left: 4px solid colors.$blue;
-    padding: 10px 0 20px 20px;
+    padding: 5px 0 10px 20px;
   }
 
   ul {
@@ -33,11 +33,15 @@
       font-family: var(--font-geist-mono), Arial, Helvetica, sans-serif;
       font-size: 16px;
       font-weight: bold;
+      padding: 4px;
     }
   }
 }
 
 .pagetitle {
   padding-bottom: 40px;
-  font-size: 40px;
+
+  h2 {
+    font-size: 40px;
+  }
 }

@@ -46,6 +46,10 @@ body {
 }
 
 // Utility classes, like Tailwind CSS.
+.w-full {
+  width: 100%;
+}
+
 .flex {
   display: flex;
 }
