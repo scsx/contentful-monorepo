@@ -1,7 +1,6 @@
 {
   "name": "@repo/cms-models",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": "./src/index.ts"
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "types": "src/index.ts"
 }
