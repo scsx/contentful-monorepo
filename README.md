@@ -43,20 +43,21 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 │           colors, spacing, translations, etc
 │
 └── 4.0 scripts
-			schema/
-				bootstrap-from-contentful.ts (initial import from 0.0 to 3.1)
-				update-model.ts (writes content model from 3.1 to 0.0)
-				compare-model.ts (compares content model from 3.1 to 0.0)
-				export-schema.ts
-
-			taxonomy/
-				sync-taxonomy.ts
-
-			typescript/
-				generate-types.ts [reads from 3.1] [writes to 3.2]
-				
-			content/
-				create-dummy-blog-posts.ts
-				create-dummy-dynamic-page.ts
-				etc... (content tests)
+        schema/
+		      bootstrap-from-contentful.ts (initial import from 0.0 to 3.1)
+		      update-model.ts (writes content model from 3.1 to 0.0)
+		      compare-model.ts (compares content model from 3.1 to 0.0)
+		      compare-env.ts (compares content models between envs in 0.0)
+		      export-schema.ts
+		
+		    taxonomy/
+		      sync-taxonomy.ts
+		
+		    typescript/
+		      generate-types.ts [reads from 3.1] [writes to 3.2]
+		      
+		    content/
+			    create-dummy-blog-posts.ts
+			    create-dummy-dynamic-page.ts
+			    etc... (content tests)
 ```          
