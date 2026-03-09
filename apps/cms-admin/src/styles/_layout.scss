@@ -1,7 +1,31 @@
+:root {
+  --background: #e4e4e4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .container {
   width: 1400px;
   margin: 0 auto;
-  padding: 32px;
+  padding: 0 32px;
 }
 
 .app-layout {
@@ -12,22 +36,11 @@
 
 .app-body {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 320px 1fr;
   height: 100%;
 }
 
-.header {
-  background: white;
-  border-bottom: 1px solid #eee;
-}
-
-.sidebar {
-  background: #f5f7fa;
-  border-right: 1px solid #eee;
-  padding: 24px;
-}
-
 .main {
-  padding: 32px;
+  padding: 60px 20px 40px 20px;
   overflow-y: auto;
 }

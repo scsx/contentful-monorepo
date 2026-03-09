@@ -1,8 +1,38 @@
+@use './colors' as colors;
+
 .mainheader {
   padding: 20px;
 
   h1 {
     margin: 0;
     font-size: 30px;
+  }
+}
+
+.navsidebar {
+  padding: 60px 20px 40px 20px;
+  overflow-y: auto;
+
+  .nav {
+    border-left: 4px solid colors.$blue;
+    padding: 10px 0 20px 20px;
+  }
+
+  ul {
+    list-style: none;
+
+    ul {
+      padding-left: 20px;
+    }
+  }
+
+  li {
+    margin: 10px 0;
+
+    a {
+      font-family: var(--font-geist-mono), Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+    }
   }
 }
