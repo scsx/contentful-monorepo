@@ -11,12 +11,12 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 ├── 2.0 apps/
 │   │
 │   ├── 2.1 web/                 
-│   │       Next.js frontend [reads from 0.0, 3.1, 3.2, 3.3, 3.4]
+│   │       Next.js frontend [reads from 0.0, 3.2, 3.3, 3.4]
 │   │       Components might include a simple version to display in 2.2
 │   │
 │   ├── 2.2 contentful-app/      
 │   │       Contentful App (UI extensions, entry-field, sidebar, etc.)
-│   │       [reads from 0.0] [writes to 0.0]
+│   │       [reads from 0.0, 3.1] [writes to 0.0]
 │   │
 │   └── 2.3 cms-admin/           
 │           Model creation & migrations (just visual feedback or actions)
