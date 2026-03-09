@@ -1,12 +1,12 @@
-// scripts/schema/bootstrap-from-contentful.ts
-
-import 'dotenv/config'
+import dotenv from 'dotenv'
 import { createClient } from 'contentful-management'
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
+
+dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 
 const client = createClient({
-  accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
+  accessToken: process.env.CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN!
 })
 
 async function run() {

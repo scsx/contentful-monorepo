@@ -19,6 +19,7 @@
     "contentful-management": "^11.74.0"
   },
   "devDependencies": {
+    "@types/node": "^25.3.5",
     "dotenv": "^17.3.1",
     "tsx": "^4.21.0"
   }

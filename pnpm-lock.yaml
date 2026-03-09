@@ -12,6 +12,9 @@ importers:
         specifier: ^11.74.0
         version: 11.74.0
     devDependencies:
+      '@types/node':
+        specifier: ^25.3.5
+        version: 25.3.5
       dotenv:
         specifier: ^17.3.1
         version: 17.3.1
@@ -186,6 +189,9 @@ packages:
     cpu: [x64]
     os: [linux]
 
+  '@types/node@25.3.5':
+    resolution: {integrity: sha512-oX8xrhvpiyRCQkG1MFchB09f+cXftgIXb3a7UUa4Y3wpmZPw5tyZGTLWhlESOLq1Rq6oDlc8npVU2/9xiCuXMA==}
+
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
@@ -354,6 +360,9 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
+  undici-types@7.18.2:
+    resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
+
 snapshots:
 
   '@contentful/rich-text-types@16.8.5': {}
@@ -438,6 +447,10 @@ snapshots:
 
   '@rollup/rollup-linux-x64-gnu@4.59.0':
     optional: true
+
+  '@types/node@25.3.5':
+    dependencies:
+      undici-types: 7.18.2
 
   asynckit@0.4.0: {}
 
@@ -645,3 +658,5 @@ snapshots:
       get-tsconfig: 4.13.6
     optionalDependencies:
       fsevents: 2.3.3
+
+  undici-types@7.18.2: {}
