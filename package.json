@@ -11,6 +11,10 @@
   ],
   "scripts": {
     "dev": "pnpm -r dev",
+    "web": "pnpm --filter web dev -- -p 3000",
+    "admin": "pnpm --filter cms-admin dev -- -p 3001",
+    "app": "pnpm --filter contentful-app dev -- -p 3002",
+    "all": "pnpm --parallel --filter web --filter cms-admin --filter contentful-app dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "typecheck": "pnpm -r typecheck"
