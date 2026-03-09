@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import '../styles/globals.scss'
-import Header from '@/components/Header/Header'
-import Sidebar from '@/components/Sidebar/Sidebar'
+import Header from '@/components/Header'
+import Sidebar from '@/components/Sidebar'
 import path from 'path'
 import readRoutes from '@/lib/getRoutes'
 
