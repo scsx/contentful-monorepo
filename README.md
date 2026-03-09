@@ -70,7 +70,3 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 | `pnpm admin`  | Starts the **apps/cms-admin** application on port 3001. |
 | `pnpm app`    | Starts the **apps/contentful-app** on port 3002. |
 | `pnpm all`    | Runs `web`, `cms-admin`, and `contentful-app` in parallel. |
-| `pnpm dev`    | Runs the `dev` script recursively in all workspace packages. |
-| `pnpm build`  | Builds all workspace packages. |
-| `pnpm lint`   | Runs ESLint across all workspace packages. |
-| `pnpm typecheck` | Runs TypeScript type checking across all workspace packages. |
