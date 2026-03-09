@@ -52,7 +52,7 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 		    taxonomy/
 		      sync-taxonomy.ts
 		
-		    types/
+		    typescript/
 		      generate-types.ts [reads from 3.1] [writes to 3.2]
 		      
 		    content/
