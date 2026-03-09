@@ -5,6 +5,7 @@ $yellow: #ffc800;
 $black: #0c0c0c;
 $white: #ffffff;
 $success: #49a836;
+$danger: #d51b1b;
 
 .bg-blue {
   background-color: $blue;
@@ -42,4 +43,7 @@ $success: #49a836;
 }
 .text-success {
   color: $success;
+}
+.text-danger {
+  color: $danger;
 }

@@ -44,3 +44,100 @@ body {
   padding: 60px 20px 40px 20px;
   overflow-y: auto;
 }
+
+// Utility classes, like Tailwind CSS.
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.flex-initial {
+  flex: 0 1 auto;
+}
+
+.flex-none {
+  flex: none;
+}
+
+// space-x, space-y and gap.
+$spaces: (
+  1: 4px,
+  2: 8px,
+  3: 12px,
+  4: 16px,
+  6: 24px,
+  8: 32px
+);
+
+@each $key, $value in $spaces {
+  .space-x-#{$key} > * + * {
+    margin-left: $value;
+  }
+}
+
+@each $key, $value in $spaces {
+  .space-y-#{$key} > * + * {
+    margin-top: $value;
+  }
+}
+
+@each $key, $value in $spaces {
+  .gap-#{$key} {
+    gap: $value;
+  }
+}
