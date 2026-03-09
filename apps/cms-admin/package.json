@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@contentful/f36-components": "^6.7.1",
+    "@contentful/f36-tokens": "^6.1.2",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
