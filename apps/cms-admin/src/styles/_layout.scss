@@ -1,0 +1,33 @@
+.container {
+  width: 1400px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-rows: 64px 1fr;
+  height: 100vh;
+}
+
+.app-body {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100%;
+}
+
+.header {
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar {
+  background: #f5f7fa;
+  border-right: 1px solid #eee;
+  padding: 24px;
+}
+
+.main {
+  padding: 32px;
+  overflow-y: auto;
+}
