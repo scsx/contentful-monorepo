@@ -1,0 +1,45 @@
+// Utility classes inspired by Tailwind CSS.
+$blue: #005ad2;
+$blue-darker: #004096;
+$yellow: #ffc800;
+$black: #0c0c0c;
+$white: #ffffff;
+$success: #49a836;
+
+.bg-blue {
+  background-color: $blue;
+}
+.bg-blue-darker {
+  background-color: $blue-darker;
+}
+.bg-yellow {
+  background-color: $yellow;
+}
+.bg-black {
+  background-color: $black;
+}
+.bg-white {
+  background-color: $white;
+}
+.bg-success {
+  background-color: $success;
+}
+
+.text-blue {
+  color: $blue;
+}
+.text-blue-darker {
+  color: $blue-darker;
+}
+.text-yellow {
+  color: $yellow;
+}
+.text-black {
+  color: $black;
+}
+.text-white {
+  color: $white;
+}
+.text-success {
+  color: $success;
+}
