@@ -63,7 +63,6 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 ```          
 
 ## How to start
-## Development Commands
 
 | Command        | Description |
 |---------------|------------|
