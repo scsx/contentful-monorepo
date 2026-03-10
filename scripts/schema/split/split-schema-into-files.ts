@@ -14,7 +14,12 @@ function run() {
   const raw = fs.readFileSync(fullSchemaPath, 'utf-8')
   const parsed = JSON.parse(raw)
 
-  const { contentTypes } = parsed
+  const { contentTypes, schemaVersion } = parsed
+
+  if (!schemaVersion) {
+    console.error('Missing schemaVersion.')
+    process.exit(1)
+  }
 
   if (!contentTypes || !Array.isArray(contentTypes)) {
     console.error('Invalid schema format.')
@@ -25,10 +30,24 @@ function run() {
     fs.mkdirSync(modelsDir, { recursive: true })
   }
 
-  for (const ct of contentTypes) {
+  const sortedContentTypes = [...contentTypes].sort((a, b) => a.id.localeCompare(b.id))
+
+  for (const ct of sortedContentTypes) {
     const filePath = path.join(modelsDir, `${ct.id}.json`)
 
-    fs.writeFileSync(filePath, JSON.stringify(ct, null, 2))
+    const sortedModel = {
+      ...ct,
+      fields: Array.isArray(ct.fields)
+        ? [...ct.fields].sort((a, b) => a.id.localeCompare(b.id))
+        : []
+    }
+
+    const modelObject = {
+      schemaVersion,
+      model: sortedModel
+    }
+
+    fs.writeFileSync(filePath, JSON.stringify(modelObject, null, 2))
     console.log(`Created: ${ct.id}.json`)
   }
 

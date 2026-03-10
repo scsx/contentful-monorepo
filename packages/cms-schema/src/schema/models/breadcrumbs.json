@@ -1,34 +1,37 @@
 {
-  "id": "breadcrumbs",
-  "name": "Breadcrumbs",
-  "description": "Block (Magic)",
-  "fields": [
-    {
-      "id": "name",
-      "name": "Name",
-      "type": "Symbol",
-      "localized": false,
-      "required": false,
-      "validations": [],
-      "disabled": false,
-      "omitted": false
-    },
-    {
-      "id": "style",
-      "name": "Style",
-      "type": "Symbol",
-      "localized": false,
-      "required": false,
-      "validations": [
-        {
-          "in": [
-            "default",
-            "large"
-          ]
-        }
-      ],
-      "disabled": false,
-      "omitted": false
-    }
-  ]
+  "schemaVersion": "1",
+  "model": {
+    "id": "breadcrumbs",
+    "name": "Breadcrumbs",
+    "description": "Block (Magic)",
+    "fields": [
+      {
+        "id": "name",
+        "name": "Name",
+        "type": "Symbol",
+        "localized": false,
+        "required": false,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "style",
+        "name": "Style",
+        "type": "Symbol",
+        "localized": false,
+        "required": false,
+        "validations": [
+          {
+            "in": [
+              "default",
+              "large"
+            ]
+          }
+        ],
+        "disabled": false,
+        "omitted": false
+      }
+    ]
+  }
 }

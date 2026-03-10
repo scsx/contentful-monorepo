@@ -1,63 +1,66 @@
 {
-  "id": "timeline",
-  "name": "Timeline",
-  "description": "Block",
-  "fields": [
-    {
-      "id": "name",
-      "name": "Name",
-      "type": "Symbol",
-      "localized": false,
-      "required": true,
-      "validations": [],
-      "disabled": false,
-      "omitted": false
-    },
-    {
-      "id": "timeline",
-      "name": "Timeline",
-      "type": "Symbol",
-      "localized": false,
-      "required": false,
-      "validations": [],
-      "disabled": false,
-      "omitted": false
-    },
-    {
-      "id": "items",
-      "name": "Items",
-      "type": "Object",
-      "localized": false,
-      "required": false,
-      "validations": [],
-      "disabled": false,
-      "omitted": false
-    },
-    {
-      "id": "direction",
-      "name": "Direction",
-      "type": "Boolean",
-      "localized": false,
-      "required": false,
-      "validations": [],
-      "defaultValue": {
-        "en-US": true
+  "schemaVersion": "1",
+  "model": {
+    "id": "timeline",
+    "name": "Timeline",
+    "description": "Block",
+    "fields": [
+      {
+        "id": "name",
+        "name": "Name",
+        "type": "Symbol",
+        "localized": false,
+        "required": true,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
       },
-      "disabled": false,
-      "omitted": false
-    },
-    {
-      "id": "color",
-      "name": "Color",
-      "type": "Boolean",
-      "localized": false,
-      "required": false,
-      "validations": [],
-      "defaultValue": {
-        "en-US": true
+      {
+        "id": "timeline",
+        "name": "Timeline",
+        "type": "Symbol",
+        "localized": false,
+        "required": false,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
       },
-      "disabled": false,
-      "omitted": false
-    }
-  ]
+      {
+        "id": "items",
+        "name": "Items",
+        "type": "Object",
+        "localized": false,
+        "required": false,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "direction",
+        "name": "Direction",
+        "type": "Boolean",
+        "localized": false,
+        "required": false,
+        "validations": [],
+        "defaultValue": {
+          "en-US": true
+        },
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "color",
+        "name": "Color",
+        "type": "Boolean",
+        "localized": false,
+        "required": false,
+        "validations": [],
+        "defaultValue": {
+          "en-US": true
+        },
+        "disabled": false,
+        "omitted": false
+      }
+    ]
+  }
 }

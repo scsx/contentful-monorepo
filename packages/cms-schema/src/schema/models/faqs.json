@@ -1,48 +1,51 @@
 {
-  "id": "faqs",
-  "name": "FAQs",
-  "description": "Block",
-  "fields": [
-    {
-      "id": "name",
-      "name": "Name",
-      "type": "Symbol",
-      "localized": false,
-      "required": true,
-      "validations": [],
-      "disabled": false,
-      "omitted": false
-    },
-    {
-      "id": "title",
-      "name": "Title",
-      "type": "Symbol",
-      "localized": false,
-      "required": false,
-      "validations": [],
-      "disabled": false,
-      "omitted": false
-    },
-    {
-      "id": "items",
-      "name": "Items",
-      "type": "Array",
-      "localized": false,
-      "required": true,
-      "validations": [],
-      "disabled": false,
-      "omitted": false,
-      "items": {
-        "type": "Link",
-        "validations": [
-          {
-            "linkContentType": [
-              "titleAndText"
-            ]
-          }
-        ],
-        "linkType": "Entry"
+  "schemaVersion": "1",
+  "model": {
+    "id": "faqs",
+    "name": "FAQs",
+    "description": "Block",
+    "fields": [
+      {
+        "id": "name",
+        "name": "Name",
+        "type": "Symbol",
+        "localized": false,
+        "required": true,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "title",
+        "name": "Title",
+        "type": "Symbol",
+        "localized": false,
+        "required": false,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "items",
+        "name": "Items",
+        "type": "Array",
+        "localized": false,
+        "required": true,
+        "validations": [],
+        "disabled": false,
+        "omitted": false,
+        "items": {
+          "type": "Link",
+          "validations": [
+            {
+              "linkContentType": [
+                "titleAndText"
+              ]
+            }
+          ],
+          "linkType": "Entry"
+        }
       }
-    }
-  ]
+    ]
+  }
 }
