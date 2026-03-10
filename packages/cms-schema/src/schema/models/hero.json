@@ -6,18 +6,36 @@
     "description": "Block",
     "fields": [
       {
-        "id": "name",
-        "name": "Name",
-        "type": "Symbol",
+        "id": "backgroundImage",
+        "name": "Background Image",
+        "type": "Link",
         "localized": false,
         "required": true,
         "validations": [],
         "disabled": false,
-        "omitted": false
+        "omitted": false,
+        "linkType": "Asset"
       },
       {
-        "id": "title",
-        "name": "Title",
+        "id": "cta",
+        "name": "CTA",
+        "type": "Link",
+        "localized": false,
+        "required": false,
+        "validations": [
+          {
+            "linkContentType": [
+              "cta"
+            ]
+          }
+        ],
+        "disabled": false,
+        "omitted": false,
+        "linkType": "Entry"
+      },
+      {
+        "id": "name",
+        "name": "Name",
         "type": "Symbol",
         "localized": false,
         "required": true,
@@ -74,32 +92,14 @@
         "omitted": false
       },
       {
-        "id": "backgroundImage",
-        "name": "Background Image",
-        "type": "Link",
+        "id": "title",
+        "name": "Title",
+        "type": "Symbol",
         "localized": false,
         "required": true,
         "validations": [],
         "disabled": false,
-        "omitted": false,
-        "linkType": "Asset"
-      },
-      {
-        "id": "cta",
-        "name": "CTA",
-        "type": "Link",
-        "localized": false,
-        "required": false,
-        "validations": [
-          {
-            "linkContentType": [
-              "cta"
-            ]
-          }
-        ],
-        "disabled": false,
-        "omitted": false,
-        "linkType": "Entry"
+        "omitted": false
       }
     ]
   }

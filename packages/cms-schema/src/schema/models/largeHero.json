@@ -6,16 +6,6 @@
     "description": "Block",
     "fields": [
       {
-        "id": "name",
-        "name": "Name",
-        "type": "Symbol",
-        "localized": false,
-        "required": true,
-        "validations": [],
-        "disabled": false,
-        "omitted": false
-      },
-      {
         "id": "content",
         "name": "Content",
         "type": "Link",
@@ -31,6 +21,16 @@
         "disabled": false,
         "omitted": false,
         "linkType": "Entry"
+      },
+      {
+        "id": "name",
+        "name": "Name",
+        "type": "Symbol",
+        "localized": false,
+        "required": true,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
       }
     ]
   }

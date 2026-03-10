@@ -6,14 +6,15 @@
     "description": "Sub-block",
     "fields": [
       {
-        "id": "title",
-        "name": "Title",
-        "type": "Symbol",
+        "id": "image",
+        "name": "Image",
+        "type": "Link",
         "localized": false,
-        "required": true,
+        "required": false,
         "validations": [],
         "disabled": false,
-        "omitted": false
+        "omitted": false,
+        "linkType": "Asset"
       },
       {
         "id": "text",
@@ -64,15 +65,14 @@
         "omitted": false
       },
       {
-        "id": "image",
-        "name": "Image",
-        "type": "Link",
+        "id": "title",
+        "name": "Title",
+        "type": "Symbol",
         "localized": false,
-        "required": false,
+        "required": true,
         "validations": [],
         "disabled": false,
-        "omitted": false,
-        "linkType": "Asset"
+        "omitted": false
       }
     ]
   }

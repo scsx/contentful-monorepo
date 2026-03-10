@@ -6,26 +6,6 @@
     "description": "Block",
     "fields": [
       {
-        "id": "name",
-        "name": "Name",
-        "type": "Symbol",
-        "localized": false,
-        "required": true,
-        "validations": [],
-        "disabled": false,
-        "omitted": false
-      },
-      {
-        "id": "title",
-        "name": "Title",
-        "type": "Symbol",
-        "localized": false,
-        "required": false,
-        "validations": [],
-        "disabled": false,
-        "omitted": false
-      },
-      {
         "id": "items",
         "name": "Items",
         "type": "Array",
@@ -45,6 +25,26 @@
           ],
           "linkType": "Entry"
         }
+      },
+      {
+        "id": "name",
+        "name": "Name",
+        "type": "Symbol",
+        "localized": false,
+        "required": true,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "title",
+        "name": "Title",
+        "type": "Symbol",
+        "localized": false,
+        "required": false,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
       }
     ]
   }

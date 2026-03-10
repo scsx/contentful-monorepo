@@ -6,6 +6,27 @@
     "description": "Page, consumes blocks",
     "fields": [
       {
+        "id": "blocks",
+        "name": "Blocks",
+        "type": "Array",
+        "localized": false,
+        "required": false,
+        "validations": [],
+        "disabled": false,
+        "omitted": false,
+        "items": {
+          "type": "Link",
+          "validations": [
+            {
+              "linkContentType": [
+                "blockWrapper"
+              ]
+            }
+          ],
+          "linkType": "Entry"
+        }
+      },
+      {
         "id": "name",
         "name": "Name",
         "type": "Symbol",
@@ -34,27 +55,6 @@
         ],
         "disabled": false,
         "omitted": false
-      },
-      {
-        "id": "blocks",
-        "name": "Blocks",
-        "type": "Array",
-        "localized": false,
-        "required": false,
-        "validations": [],
-        "disabled": false,
-        "omitted": false,
-        "items": {
-          "type": "Link",
-          "validations": [
-            {
-              "linkContentType": [
-                "blockWrapper"
-              ]
-            }
-          ],
-          "linkType": "Entry"
-        }
       }
     ]
   }

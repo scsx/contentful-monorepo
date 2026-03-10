@@ -6,32 +6,15 @@
     "description": "Block",
     "fields": [
       {
-        "id": "name",
-        "name": "Name",
-        "type": "Symbol",
-        "localized": false,
-        "required": true,
-        "validations": [],
-        "disabled": false,
-        "omitted": false
-      },
-      {
-        "id": "timeline",
-        "name": "Timeline",
-        "type": "Symbol",
+        "id": "color",
+        "name": "Color",
+        "type": "Boolean",
         "localized": false,
         "required": false,
         "validations": [],
-        "disabled": false,
-        "omitted": false
-      },
-      {
-        "id": "items",
-        "name": "Items",
-        "type": "Object",
-        "localized": false,
-        "required": false,
-        "validations": [],
+        "defaultValue": {
+          "en-US": true
+        },
         "disabled": false,
         "omitted": false
       },
@@ -49,15 +32,32 @@
         "omitted": false
       },
       {
-        "id": "color",
-        "name": "Color",
-        "type": "Boolean",
+        "id": "items",
+        "name": "Items",
+        "type": "Object",
         "localized": false,
         "required": false,
         "validations": [],
-        "defaultValue": {
-          "en-US": true
-        },
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "name",
+        "name": "Name",
+        "type": "Symbol",
+        "localized": false,
+        "required": true,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "timeline",
+        "name": "Timeline",
+        "type": "Symbol",
+        "localized": false,
+        "required": false,
+        "validations": [],
         "disabled": false,
         "omitted": false
       }

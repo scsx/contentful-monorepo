@@ -6,8 +6,8 @@
     "description": "Sub-block - For FAQs, text blocks, etc",
     "fields": [
       {
-        "id": "title",
-        "name": "Title",
+        "id": "text",
+        "name": "Text",
         "type": "Symbol",
         "localized": false,
         "required": true,
@@ -16,8 +16,8 @@
         "omitted": false
       },
       {
-        "id": "text",
-        "name": "Text",
+        "id": "title",
+        "name": "Title",
         "type": "Symbol",
         "localized": false,
         "required": true,
