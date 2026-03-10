@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import { createClient } from 'contentful-management'
 import fs from 'node:fs'
 import path from 'node:path'
+import { normalizeSchema } from 'scripts/scripts-utils/normalize-schema'
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 
@@ -24,11 +25,6 @@ async function run() {
 
   const outputPath = path.resolve('packages/cms-schema/src/schema/full/schema.json')
 
-  if (fs.existsSync(outputPath)) {
-    console.log('Schema already exists. Aborting.')
-    return
-  }
-
   let previousVersion = 0
 
   if (fs.existsSync(outputPath)) {
@@ -38,13 +34,15 @@ async function run() {
 
   const newVersion = previousVersion + 1
 
-  const schemaObject = {
+  const rawSchema = {
     schemaVersion: String(newVersion),
     generatedAt: new Date().toISOString(),
     contentTypes: cleaned
   }
 
-  fs.writeFileSync(outputPath, JSON.stringify(schemaObject, null, 2))
+  const normalized = normalizeSchema(rawSchema)
+
+  fs.writeFileSync(outputPath, JSON.stringify(normalized, null, 2))
 
   console.log(`Schema exported. New version: ${newVersion}`)
 }
