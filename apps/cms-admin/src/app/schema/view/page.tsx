@@ -45,7 +45,7 @@ export default function SchemaViewPage() {
   return (
     <div>
       <PageTitle
-        title='Schema View'
+        title='View Schema'
         subtitle='Reading from packages\cms-schema\src\schema\full\schema.json'
       />
 
