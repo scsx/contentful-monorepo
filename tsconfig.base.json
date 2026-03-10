@@ -8,7 +8,7 @@
     "types": ["node"],
     "baseUrl": ".",
     "paths": {
-      "@repo/cms-models": ["packages/cms-models/src"]
+      "@repo/cms-schema": ["packages/cms-schema/src"]
     }
   }
 }

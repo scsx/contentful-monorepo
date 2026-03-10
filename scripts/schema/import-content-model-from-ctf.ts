@@ -22,11 +22,31 @@ async function run() {
     fields: ct.fields
   }))
 
-  const outputPath = path.resolve('packages/cms-models/src/content-types/content-types.json')
+  const outputPath = path.resolve('packages/cms-schema/src/schema/full/schema.json')
 
-  fs.writeFileSync(outputPath, JSON.stringify(cleaned, null, 2))
+  if (fs.existsSync(outputPath)) {
+    console.log('Schema already exists. Aborting.')
+    return
+  }
 
-  console.log('Bootstrap complete.')
+  let previousVersion = 0
+
+  if (fs.existsSync(outputPath)) {
+    const existing = JSON.parse(fs.readFileSync(outputPath, 'utf-8'))
+    previousVersion = Number(existing.schemaVersion || 0)
+  }
+
+  const newVersion = previousVersion + 1
+
+  const schemaObject = {
+    schemaVersion: String(newVersion),
+    generatedAt: new Date().toISOString(),
+    contentTypes: cleaned
+  }
+
+  fs.writeFileSync(outputPath, JSON.stringify(schemaObject, null, 2))
+
+  console.log(`Schema exported. New version: ${newVersion}`)
 }
 
 run()

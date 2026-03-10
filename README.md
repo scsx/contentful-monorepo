@@ -28,7 +28,7 @@ This monorepo is a structured CMS-as-Code platform that centralizes Contentful s
 │
 ├── 3.0 packages/
 │   │
-│   ├── 3.1 cms-models/          
+│   ├── 3.1 cms-schema/          
 │   │       Content model
 │   │ 			Schema as code; content model source of truth; schemaVersion (1)
 │   │       Taxonomy

@@ -1,6 +1,6 @@
 'use client'
 
-import { contentTypes } from '@repo/cms-models'
+import { contentTypes } from '@repo/cms-schema'
 import PageTitle from '@/components/PageTitle'
 import React from 'react'
 import { Table } from '@contentful/f36-components'
@@ -46,7 +46,7 @@ export default function SchemaViewPage() {
     <div>
       <PageTitle
         title='Schema View'
-        subtitle='Reading from packages\cms-models\src\content-types\content-types.json'
+        subtitle='Reading from packages\cms-schema\src\schema\full\schema.json'
       />
 
       <div className='flex space-x-8'>
