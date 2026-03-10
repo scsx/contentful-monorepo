@@ -10,7 +10,7 @@ export default function SchemaImportPage() {
         steps={[
           {
             title: '1 Run from the root of the monorepo:',
-            command: 'pnpm tsx scripts/schema/import-content-model-from-ctf.ts'
+            command: 'pnpm tsx scripts/schema/import/import-content-model-from-ctf.ts'
           },
           {
             title: '2 After generate individual model files with:',

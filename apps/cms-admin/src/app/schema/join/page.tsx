@@ -1,15 +1,19 @@
 import PageTitle from '@/components/PageTitle'
+import ScriptSteps from '@/components/ScriptSteps'
 
 export default function SchemaJoinPage() {
   return (
     <div>
       <PageTitle title='Join Schema' subtitle='' />
 
-      <div>
-        <p className='text-xl'>Generate final <code>schema.json</code> from individual model files with:</p>
-        <br />
-        <code className='text-xl'>pnpm ...</code>
-      </div>
+      <ScriptSteps
+        steps={[
+          {
+            title: 'Generate final schema.json from individual model files with:',
+            command: 'pnpm ...'
+          }
+        ]}
+      />
     </div>
   )
 }
