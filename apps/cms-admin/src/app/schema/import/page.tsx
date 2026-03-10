@@ -1,21 +1,23 @@
 import PageTitle from '@/components/PageTitle'
+import ScriptSteps from '@/components/ScriptSteps'
 
 export default function SchemaImportPage() {
   return (
     <div>
       <PageTitle title='Import Schema' subtitle='Use once in a lifetime' />
 
-      <div>
-        <p className='text-xl'>Run from the root of the monorepo:</p>
-        <br />
-        <code className='text-xl'>pnpm tsx scripts/schema/import-content-model-from-ctf.ts</code>
-        <br />
-        <br />
-        <br />
-        <p className='text-xl'>After generate individual model files with:</p>
-        <br />
-        <code className='text-xl'>pnpm ...</code>
-      </div>
+      <ScriptSteps
+        steps={[
+          {
+            title: '1 Run from the root of the monorepo:',
+            command: 'pnpm tsx scripts/schema/import-content-model-from-ctf.ts'
+          },
+          {
+            title: '2 After generate individual model files with:',
+            command: 'pnpm ...'
+          }
+        ]}
+      />
     </div>
   )
 }

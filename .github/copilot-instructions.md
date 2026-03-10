@@ -20,6 +20,7 @@ Read the main README for folder structure and basic roles.
 - No runtime logic inside cms-schema (schema only)
 - Scripts must be idempotent when possible
 - Do not modify Contentful manually without syncing back to cms-schema
+- All typescript uses type and convention TName, TComponentProps, etc
 
 ## Technical
 
