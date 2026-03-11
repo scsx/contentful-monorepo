@@ -17,8 +17,13 @@ function readRoutes(dir: string, basePath = ''): RouteNode[] {
 
     const folderName = entry.name
 
-    // ignore special folders
-    if (folderName.startsWith('_') || folderName.startsWith('(') || folderName === 'api') {
+    // ignore special folders and dynamic routes
+    if (
+      folderName.startsWith('_') ||
+      folderName.startsWith('(') ||
+      folderName === 'api' ||
+      (folderName.startsWith('[') && folderName.endsWith(']'))
+    ) {
       continue
     }
 

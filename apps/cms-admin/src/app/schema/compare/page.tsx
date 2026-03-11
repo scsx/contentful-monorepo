@@ -19,11 +19,9 @@ export default function CompareSchemasPage() {
         Use <code className='bg-white text-blue'>dev</code>,{' '}
         <code className='bg-white text-blue'>preprod</code>,{' '}
         <code className='bg-white text-blue'>staging</code> or{' '}
-        <code className='bg-white text-blue'>master</code>
+        <code className='bg-white text-blue'>master</code> (Nothing has been implemented)
       </p>
-      <p>
-        Info not final.
-      </p>
+      
     </div>
   )
 }
