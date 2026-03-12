@@ -4,7 +4,7 @@ export default function LogsPage() {
   return (
     <div>
       <PageTitle title='Migration Logs' />
-      <p>Choose an environment. Info about logs and how to generate them.</p>
+      <p>Choose an environment. Info about logs and how to generate them will come here.</p>
     </div>
   )
 }

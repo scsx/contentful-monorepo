@@ -10,7 +10,7 @@ export default function ModelsPage() {
 
   return (
     <div>
-      <PageTitle title='Models' subtitle='' />
+      <PageTitle title='Models' subtitle='Content Types, models for short' />
 
       <div className='space-y-2'>
         {files.map((file) => {

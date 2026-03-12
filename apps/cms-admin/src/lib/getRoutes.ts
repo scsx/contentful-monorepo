@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
+// File to make the sidebar navigation dynamically.
+
 type RouteNode = {
   name: string
   path: string
