@@ -5,7 +5,7 @@
     {
       "id": "dynamicPage",
       "name": "Dynamic Page",
-      "description": "Page, consumes blocks",
+      "description": "Page, consumes blocks, has slug",
       "fields": [
         {
           "id": "name",
@@ -50,9 +50,7 @@
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "blockWrapper"
-                ]
+                "linkContentType": ["blockWrapper"]
               }
             ],
             "linkType": "Entry"
@@ -94,12 +92,7 @@
           "required": false,
           "validations": [
             {
-              "in": [
-                "1/3",
-                "1/2",
-                "2/3",
-                "Full"
-              ]
+              "in": ["1/3", "1/2", "2/3", "Full"]
             }
           ],
           "defaultValue": {
@@ -116,14 +109,7 @@
           "required": false,
           "validations": [
             {
-              "in": [
-                "none",
-                "white",
-                "primary",
-                "secondary",
-                "alternative",
-                "neutral"
-              ]
+              "in": ["none", "white", "primary", "secondary", "alternative", "neutral"]
             }
           ],
           "defaultValue": {
@@ -151,14 +137,7 @@
           "required": false,
           "validations": [
             {
-              "in": [
-                "none",
-                "xs",
-                "s",
-                "m",
-                "l",
-                "xl"
-              ]
+              "in": ["none", "xs", "s", "m", "l", "xl"]
             }
           ],
           "defaultValue": {
@@ -175,14 +154,7 @@
           "required": false,
           "validations": [
             {
-              "in": [
-                "none",
-                "xs",
-                "s",
-                "m",
-                "l",
-                "xl"
-              ]
+              "in": ["none", "xs", "s", "m", "l", "xl"]
             }
           ],
           "defaultValue": {
@@ -261,9 +233,7 @@
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "genericContentColumnsItem"
-                ]
+                "linkContentType": ["genericContentColumnsItem"]
               }
             ],
             "linkType": "Entry"
@@ -303,11 +273,7 @@
           "required": false,
           "validations": [
             {
-              "in": [
-                "short",
-                "normal",
-                "tall"
-              ]
+              "in": ["short", "normal", "tall"]
             }
           ],
           "defaultValue": {
@@ -341,9 +307,7 @@
           "required": false,
           "validations": [
             {
-              "linkContentType": [
-                "titleAndText"
-              ]
+              "linkContentType": ["titleAndText"]
             }
           ],
           "disabled": false,
@@ -363,9 +327,7 @@
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "cta"
-                ]
+                "linkContentType": ["cta"]
               }
             ],
             "linkType": "Entry"
@@ -392,12 +354,7 @@
           "required": false,
           "validations": [
             {
-              "in": [
-                "left",
-                "center",
-                "right",
-                "full"
-              ]
+              "in": ["left", "center", "right", "full"]
             }
           ],
           "defaultValue": {
@@ -431,10 +388,7 @@
           "required": false,
           "validations": [
             {
-              "in": [
-                "default",
-                "large"
-              ]
+              "in": ["default", "large"]
             }
           ],
           "disabled": false,
@@ -445,7 +399,7 @@
     {
       "id": "cta",
       "name": "CTA",
-      "description": "Element (link)",
+      "description": "Element (Call To Action link)",
       "fields": [
         {
           "id": "ctaText",
@@ -482,13 +436,7 @@
           "required": false,
           "validations": [
             {
-              "in": [
-                "primary",
-                "secondary",
-                "alternative",
-                "neutral",
-                "white"
-              ]
+              "in": ["primary", "secondary", "alternative", "neutral", "white"]
             }
           ],
           "disabled": false,
@@ -582,9 +530,7 @@
           "required": false,
           "validations": [
             {
-              "linkContentType": [
-                "titleAndText"
-              ]
+              "linkContentType": ["titleAndText"]
             }
           ],
           "disabled": false,
@@ -631,9 +577,7 @@
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "titleAndText"
-                ]
+                "linkContentType": ["titleAndText"]
               }
             ],
             "linkType": "Entry"
@@ -836,9 +780,7 @@
           "required": false,
           "validations": [
             {
-              "linkContentType": [
-                "cta"
-              ]
+              "linkContentType": ["cta"]
             }
           ],
           "disabled": false,

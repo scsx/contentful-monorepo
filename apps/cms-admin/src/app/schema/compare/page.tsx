@@ -10,7 +10,7 @@ export default function CompareSchemasPage() {
         steps={[
           {
             title: 'Compare two schema.json files with:',
-            command: 'pnpm tsx scripts/schema/compare-envs.ts dev master'
+            command: 'pnpm tsx scripts/schema/compare/compare-envs.ts dev master'
           }
         ]}
       />
