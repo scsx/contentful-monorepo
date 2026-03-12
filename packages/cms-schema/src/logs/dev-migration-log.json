@@ -1,0 +1,46 @@
+{
+  "migrations": [
+    {
+      "id": "dummy-2026-03-01T10-15-23Z",
+      "source": "repo",
+      "target": "dev",
+      "startedAt": "2026-03-01T10:15:23Z",
+      "finishedAt": "2026-03-01T10:15:31Z",
+      "status": "success",
+      "summary": {
+        "contentTypesCreated": 2,
+        "contentTypesUpdated": 3,
+        "fieldsAdded": 4
+      },
+      "notes": "Dummy migration repo → dev."
+    },
+    {
+      "id": "dummy-2026-03-05T09-42-10Z",
+      "source": "repo",
+      "target": "dev",
+      "startedAt": "2026-03-05T09:42:10Z",
+      "finishedAt": "2026-03-05T09:42:21Z",
+      "status": "success",
+      "summary": {
+        "contentTypesCreated": 0,
+        "contentTypesUpdated": 2,
+        "fieldsAdded": 1
+      },
+      "notes": "Dummy migration repo → dev."
+    },
+    {
+      "id": "dummy-2026-03-08T16-07-44Z",
+      "source": "repo",
+      "target": "dev",
+      "startedAt": "2026-03-08T16:07:44Z",
+      "finishedAt": "2026-03-08T16:07:58Z",
+      "status": "success",
+      "summary": {
+        "contentTypesCreated": 1,
+        "contentTypesUpdated": 1,
+        "fieldsAdded": 2
+      },
+      "notes": "Dummy migration repo → dev."
+    }
+  ]
+}
