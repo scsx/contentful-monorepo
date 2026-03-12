@@ -22,7 +22,7 @@ export default async function ModelDetailPage({ params }: Props) {
       <PageTitle title={`Model: ${model}`} subtitle='' />
 
       <div className='flex space-x-8'>
-        <pre className='w-1/3'>{JSON.stringify(json, null, 2)}</pre>
+        <pre className='w-1/3 bg-white p-4'>{JSON.stringify(json, null, 2)}</pre>
         <div>
           <Button isDisabled>Edit Model</Button>
           <br />

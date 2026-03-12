@@ -18,3 +18,16 @@ export function getJSONModel(modelName: string) {
 
   return JSON.parse(fs.readFileSync(modelPath, 'utf-8'))
 }
+
+// Export logs.
+const logsDir = path.join(__dirname, 'logs')
+
+export function getMigrationLog(env: string) {
+  const logPath = path.join(logsDir, `${env}-migration-log.json`)
+
+  if (!fs.existsSync(logPath)) {
+    return null
+  }
+
+  return JSON.parse(fs.readFileSync(logPath, 'utf-8'))
+}
