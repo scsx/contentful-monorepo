@@ -46,6 +46,10 @@ body {
 }
 
 // Utility classes, like Tailwind CSS.
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .w-full {
   width: 100%;
 }

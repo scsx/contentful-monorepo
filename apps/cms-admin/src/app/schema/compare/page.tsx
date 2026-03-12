@@ -16,9 +16,9 @@ export default function CompareSchemasPage() {
       />
 
       <p className='text-lg'>
-        Use <code className='bg-white text-blue'>dev</code>,{' '}
+        Use <code className='bg-white text-blue'>repo</code>,{' '}
+        <code className='bg-white text-blue'>dev</code>,{' '}
         <code className='bg-white text-blue'>preprod</code>,{' '}
-        <code className='bg-white text-blue'>staging</code> or{' '}
         <code className='bg-white text-blue'>master</code> (Nothing has been implemented)
       </p>
       

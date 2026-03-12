@@ -19,10 +19,7 @@ const SchemaViewTable = ({ contentTypes }: Props) => {
         if (linkContentType && linkContentType.length > 0) {
           return (
             <span>
-              Array of{' '}
-              <code>
-                <strong className='text-blue'>{linkContentType.join(', ')}</strong>
-              </code>
+              Array of <code className='modelname'>{linkContentType.join(', ')}</code>
             </span>
           )
         }
@@ -33,10 +30,7 @@ const SchemaViewTable = ({ contentTypes }: Props) => {
       if (linkContentType && linkContentType.length > 0) {
         return (
           <span>
-            Link to{' '}
-            <code>
-              <strong className='text-blue'>{linkContentType.join(', ')}</strong>
-            </code>
+            Link to <code className='modelname'>{linkContentType.join(', ')}</code>
           </span>
         )
       }
@@ -62,10 +56,10 @@ const SchemaViewTable = ({ contentTypes }: Props) => {
             <React.Fragment key={ct.id}>
               <Table.Row>
                 <Table.Cell colSpan={6}>
-                  <strong className='text-xl font-bold text-blue'>
-                    <pre>{ct.id}</pre>
-                  </strong>
-                  <p className='text-base'>{ct.name}</p>
+                    <code className='modelname text-xl'>{ct.id}</code>
+                  <p className='text-base mt-2'>
+                    <strong>{ct.name}</strong>
+                  </p>
                   <em>{ct.description ?? ''}</em>
                 </Table.Cell>
               </Table.Row>

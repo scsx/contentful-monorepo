@@ -17,7 +17,7 @@ export default function ModelsPage() {
           const name = file.replace('.json', '')
           return (
             <p key={name} className='text-lg'>
-              <Link href={`/models/${name}`}>{name}</Link>
+              <code className='modelname'><Link href={`/models/${name}`}>{name}</Link></code>
             </p>
           )
         })}
