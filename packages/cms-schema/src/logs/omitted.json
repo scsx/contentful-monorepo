@@ -1,0 +1,18 @@
+{
+  "omitted": [
+    {
+      "environment": "dev",
+      "entity": "field",
+      "contentTypeId": "genericContentColumnsItem",
+      "fieldId": "descriptionTest",
+      "timestamp": "2026-03-13T19:52:44.201Z"
+    },
+    {
+      "environment": "dev",
+      "entity": "field",
+      "contentTypeId": "genericContentColumnsItem",
+      "fieldId": "subtitleTest",
+      "timestamp": "2026-03-13T19:57:59.352Z"
+    }
+  ]
+}

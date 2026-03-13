@@ -1,13 +1,16 @@
-import fs from 'node:fs'
 import path from 'node:path'
 import dotenv from 'dotenv'
-import readline from 'node:readline/promises'
-import { stdin as input, stdout as output } from 'node:process'
-import { createClient } from 'contentful-management'
 import { normalizeSchema } from '../scripts-utils/normalize-schema'
+
+import { confirm } from './migrate-schema/confirm'
+import { getRepoSchema } from './migrate-schema/get-repo-schema'
+import { getEnv } from './migrate-schema/get-env'
+import { detectOmissions } from './migrate-schema/detect-omissions'
+import { logOmission } from './migrate-schema/log-omissions'
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 
+// 1. Parse CLI arguments
 const args = process.argv.slice(2)
 const source = args[0]
 const target = args[1]
@@ -22,65 +25,22 @@ if (source !== 'repo') {
   process.exit(1)
 }
 
-async function confirm(question: string) {
-  const rl = readline.createInterface({ input, output })
-  const answer = await rl.question(`${question} (y/n): `)
-  rl.close()
-  return answer.toLowerCase() === 'y'
-}
-
-async function getRepoSchema() {
-  const schemaPath = path.resolve('packages/cms-schema/src/schema/full/schema.json')
-  const raw = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'))
-  return normalizeSchema(raw)
-}
-
-async function getEnv() {
-  const client = createClient({
-    accessToken: process.env.CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN!
-  })
-
-  const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID!)
-  return space.getEnvironment(target)
-}
-
 async function run() {
   console.log(`\nSource: ${source}`)
   console.log(`Target: ${target}\n`)
 
+  // 2. Load schemas
   const repoSchema = await getRepoSchema()
-  const env = await getEnv()
-
+  const env = await getEnv(target)
   const existingContentTypes = await env.getContentTypes()
-  const existingMap = new Map(existingContentTypes.items.map((ct) => [ct.sys.id, ct]))
 
-  const omissions: string[] = []
-  const contentTypesToOmit: string[] = []
+  // 3. Detect omissions (fields / content types not present in repo)
+  const { omissions, contentTypesToOmit, existingMap } = detectOmissions(
+    repoSchema,
+    existingContentTypes
+  )
 
-  // Detect field omissions
-  for (const repoCT of repoSchema.contentTypes) {
-    const existing = existingMap.get(repoCT.id)
-    if (!existing) continue
-
-    const repoFieldIds = new Set(repoCT.fields.map((f: any) => f.id))
-
-    for (const existingField of existing.fields) {
-      if (!repoFieldIds.has(existingField.id) && !existingField.omitted) {
-        omissions.push(`${repoCT.id}.${existingField.id}`)
-      }
-    }
-  }
-
-  // Detect content types to omit
-  const repoContentTypeIds = new Set(repoSchema.contentTypes.map((ct: any) => ct.id))
-
-  for (const existingCT of existingContentTypes.items) {
-    if (!repoContentTypeIds.has(existingCT.sys.id)) {
-      contentTypesToOmit.push(existingCT.sys.id)
-    }
-  }
-
-  // Confirmation
+  // 4. Ask confirmation before destructive actions
   if (omissions.length > 0 || contentTypesToOmit.length > 0) {
     if (omissions.length > 0) {
       console.log('\nFields to be omitted:')
@@ -93,7 +53,7 @@ async function run() {
     }
 
     const ok = await confirm(
-      '\nDid you run scripts/models/model/find-field-usages.ts?\n' +
+      '\nDid you run scripts/models/model/find-usages.ts?\n' +
         'Did you run scripts/models/model/find-field-usages.ts?\n' +
         'Continue anyway?'
     )
@@ -106,15 +66,18 @@ async function run() {
     console.log('')
   }
 
+  // 5. Counters for summary
   let created = 0
   let updated = 0
   let fieldsAdded = 0
   let fieldsUpdated = 0
   let fieldsOmitted = 0
 
+  // 6. Iterate repo content types
   for (const repoCT of repoSchema.contentTypes) {
-    const existing = existingMap.get(repoCT.id)
+    const existing: any = existingMap.get(repoCT.id)
 
+    // 6.1 Create content type if missing
     if (!existing) {
       console.log(`Create content type: ${repoCT.id}`)
 
@@ -132,6 +95,7 @@ async function run() {
 
     let changed = false
 
+    // 6.2 Update content type metadata
     if (existing.name !== repoCT.name) {
       existing.name = repoCT.name
       changed = true
@@ -142,11 +106,14 @@ async function run() {
       changed = true
     }
 
+    // 6.3 Map existing fields
     const fieldMap = new Map(existing.fields.map((f: any) => [f.id, f]))
 
+    // 6.4 Add or update fields
     for (const repoField of repoCT.fields) {
       const existingField = fieldMap.get(repoField.id)
 
+      // Add new field
       if (!existingField) {
         console.log(`  Add field: ${repoCT.id}.${repoField.id}`)
         existing.fields.push(repoField)
@@ -155,6 +122,7 @@ async function run() {
         continue
       }
 
+      // Compare normalized fields to avoid false positives
       const existingNormalized = normalizeSchema({
         schemaVersion: '1',
         contentTypes: [{ id: 'x', name: '', description: '', fields: [existingField] }]
@@ -164,14 +132,13 @@ async function run() {
 
       if (JSON.stringify(existingNormalized) !== JSON.stringify(repoNormalized)) {
         console.log(`  Update field: ${repoCT.id}.${repoField.id}`)
-
         Object.assign(existingField, repoField)
-
         fieldsUpdated++
         changed = true
       }
     }
 
+    // 6.5 Omit fields not present in repo schema
     const repoFieldIds = new Set(repoCT.fields.map((f: any) => f.id))
 
     for (const existingField of existing.fields) {
@@ -180,11 +147,20 @@ async function run() {
 
         existingField.omitted = true
 
+        logOmission({
+          environment: target,
+          entity: 'field',
+          contentTypeId: repoCT.id,
+          fieldId: existingField.id,
+          timestamp: new Date().toISOString()
+        })
+
         fieldsOmitted++
         changed = true
       }
     }
 
+    // 6.6 Update content type if any change occurred
     if (changed) {
       console.log(`Update content type: ${repoCT.id}`)
 
@@ -206,12 +182,20 @@ async function run() {
     }
   }
 
-  // Apply content type omissions
+  // 7. Omit content types not present in repo
   for (const ctId of contentTypesToOmit) {
-    const ct = existingMap.get(ctId)
+    const ct: any = existingMap.get(ctId)
     if (!ct) continue
 
     console.log(`Omit content type: ${ctId}`)
+    // Log omissions to omitted.json
+    logOmission({
+      environment: target,
+      entity: 'contentType',
+      contentTypeId: ctId,
+      fieldId: null,
+      timestamp: new Date().toISOString()
+    })
 
     ct.fields.forEach((f: any) => {
       f.omitted = true
@@ -221,6 +205,7 @@ async function run() {
     await updatedCT.publish()
   }
 
+  // 8. Summary
   console.log('\nSummary')
   console.log('-------')
   console.log('Content types created:', created)
