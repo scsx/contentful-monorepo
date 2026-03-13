@@ -1,3 +1,5 @@
+@use './colors' as colors;
+
 :root {
   --background: #e4e4e4;
 }
@@ -20,6 +22,11 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: colors.$blue;
+  font-weight: 600;
 }
 
 .container {

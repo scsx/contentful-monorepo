@@ -10,15 +10,15 @@ export default function MigrateSchemaPage() {
         steps={[
           {
             title: 'Migrate schema from repo to dev',
-            command: 'pnpm tsx scripts/schema/migrate/migrate-schema.ts repo dev'
+            command: 'pnpm tsx scripts/migrate/migrate-schema.ts repo dev'
           },
           {
             title: 'Promote schema from dev to preprod',
-            command: 'pnpm tsx scripts/schema/migrate/migrate-schema.ts dev preprod'
+            command: 'pnpm tsx scripts/migrate/migrate-schema.ts dev preprod'
           },
           {
             title: 'Promote schema from preprod to master',
-            command: 'pnpm tsx scripts/schema/migrate/migrate-schema.ts preprod master'
+            command: 'pnpm tsx scripts/migrate/migrate-schema.ts preprod master'
           }
         ]}
       />
@@ -26,7 +26,7 @@ export default function MigrateSchemaPage() {
       <h2 className='pt-8 pb-4'>Example outputs from script</h2>
       <p>A new string was added to FAQs (subtitle):</p>
       <pre className='bg-black text-white p-4 mt-4 text-base w-2/3'>
-        {`pnpm tsx scripts/schema/migrate/migrate-schema.ts repo dev
+        {`pnpm tsx scripts/migrate/migrate-schema.ts repo dev
 [dotenv@17.3.1] injecting env (5) from .env
 
 Source: repo
@@ -55,7 +55,7 @@ Fields updated: 0`}
       </pre>
       <p className='pt-8'>The previous string was removed from FAQs (subtitle):</p>
       <pre className='bg-black text-white p-4 mt-4 text-base w-2/3'>
-        {`pnpm tsx scripts/schema/migrate/migrate-schema.ts repo dev
+        {`pnpm tsx scripts/migrate/migrate-schema.ts repo dev
 [dotenv@17.3.1] injecting env (5) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
 
 Source: repo

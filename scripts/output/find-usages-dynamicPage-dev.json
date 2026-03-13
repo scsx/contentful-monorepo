@@ -1,0 +1,39 @@
+{
+  "model": "dynamicPage",
+  "environment": "dev",
+  "totalUsages": 5,
+  "displayed": 5,
+  "limited": false,
+  "entries": [
+    {
+      "id": "20PeViBpFI4fWsUcCiFlru",
+      "title": "Spain",
+      "updatedAt": "2026-03-06T21:57:37.980Z",
+      "contentType": "dynamicPage"
+    },
+    {
+      "id": "2oJSmhxMFtTf4CIwAJjIoV",
+      "title": "Portugal",
+      "updatedAt": "2026-03-06T21:57:12.875Z",
+      "contentType": "dynamicPage"
+    },
+    {
+      "id": "3VH5aDcxASlpIkGiz4YnzR",
+      "title": "Madrid",
+      "updatedAt": "2026-03-06T12:22:09.375Z",
+      "contentType": "dynamicPage"
+    },
+    {
+      "id": "6Uax6bcquH7mFhjPDAGvtW",
+      "title": "Bairro Alto",
+      "updatedAt": "2026-03-05T16:58:32.113Z",
+      "contentType": "dynamicPage"
+    },
+    {
+      "id": "YB8rFatncQGk2MkefLG1U",
+      "title": "Lisbon",
+      "updatedAt": "2026-03-05T15:37:57.506Z",
+      "contentType": "dynamicPage"
+    }
+  ]
+}
