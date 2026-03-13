@@ -1,6 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import dotenv from 'dotenv'
+import readline from 'node:readline/promises'
+import { stdin as input, stdout as output } from 'node:process'
 import { createClient } from 'contentful-management'
 import { normalizeSchema } from '../scripts-utils/normalize-schema'
 
@@ -18,6 +20,13 @@ if (!source || !target) {
 if (source !== 'repo') {
   console.error('Only repo → env migrations supported for now.')
   process.exit(1)
+}
+
+async function confirm(question: string) {
+  const rl = readline.createInterface({ input, output })
+  const answer = await rl.question(`${question} (y/n): `)
+  rl.close()
+  return answer.toLowerCase() === 'y'
 }
 
 async function getRepoSchema() {
@@ -44,6 +53,39 @@ async function run() {
 
   const existingContentTypes = await env.getContentTypes()
   const existingMap = new Map(existingContentTypes.items.map((ct) => [ct.sys.id, ct]))
+
+  const omissions: string[] = []
+
+  for (const repoCT of repoSchema.contentTypes) {
+    const existing = existingMap.get(repoCT.id)
+    if (!existing) continue
+
+    const repoFieldIds = new Set(repoCT.fields.map((f: any) => f.id))
+
+    for (const existingField of existing.fields) {
+      if (!repoFieldIds.has(existingField.id) && !existingField.omitted) {
+        omissions.push(`${repoCT.id}.${existingField.id}`)
+      }
+    }
+  }
+
+  if (omissions.length > 0) {
+    console.log('\nFields to be omitted:')
+    omissions.forEach((f) => console.log(` - ${f}`))
+
+    const ok = await confirm(
+      '\nDid you run scripts/models/model/find-field-usages.ts?\n' +
+        'Did you run scripts/models/model/find-field-usages.ts?\n' +
+        'Continue anyway?'
+    )
+
+    if (!ok) {
+      console.log('\nMigration aborted.')
+      process.exit(1)
+    }
+
+    console.log('')
+  }
 
   let created = 0
   let updated = 0
@@ -111,8 +153,6 @@ async function run() {
       }
     }
 
-    // OMIT
-    // TODO: make a warning showing used places for the deleted item
     const repoFieldIds = new Set(repoCT.fields.map((f: any) => f.id))
 
     for (const existingField of existing.fields) {
@@ -129,7 +169,6 @@ async function run() {
     if (changed) {
       console.log(`Update content type: ${repoCT.id}`)
 
-      // Keep order of repo fields but preserve omitted ones
       const ordered = repoCT.fields.map((repoField: any) => {
         const current = existing.fields.find((f: any) => f.id === repoField.id)
         return current ?? repoField
