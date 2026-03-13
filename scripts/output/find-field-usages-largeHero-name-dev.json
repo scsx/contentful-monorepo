@@ -1,0 +1,40 @@
+{
+  "model": "largeHero",
+  "field": "name",
+  "environment": "dev",
+  "totalUsages": 5,
+  "displayed": 5,
+  "limited": false,
+  "entries": [
+    {
+      "id": "1NE8U204qjsF92tnrFFKXb",
+      "title": "Madrid",
+      "updatedAt": "2026-03-05T21:08:35.087Z",
+      "contentType": "largeHero"
+    },
+    {
+      "id": "5bYmxAu9GpinBbyIHjtdAW",
+      "title": "Bairro Alto",
+      "updatedAt": "2026-03-05T15:44:26.548Z",
+      "contentType": "largeHero"
+    },
+    {
+      "id": "1rq5vrJJIYWpwqY18MSkdW",
+      "title": "Barcelona SP Lg Hero",
+      "updatedAt": "2026-03-05T02:07:11.766Z",
+      "contentType": "largeHero"
+    },
+    {
+      "id": "6Lc4p0FWKIxvNJGOxHGXJH",
+      "title": "Lisbon Large Hero",
+      "updatedAt": "2026-03-05T01:45:31.944Z",
+      "contentType": "largeHero"
+    },
+    {
+      "id": "7EUY7LzOlAhgKAFy3AT2dU",
+      "title": "Lisboa",
+      "updatedAt": "2026-03-05T01:24:07.711Z",
+      "contentType": "largeHero"
+    }
+  ]
+}

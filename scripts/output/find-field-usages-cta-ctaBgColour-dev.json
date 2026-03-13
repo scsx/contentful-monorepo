@@ -1,0 +1,64 @@
+{
+  "model": "cta",
+  "field": "ctaBgColour",
+  "environment": "dev",
+  "totalUsages": 9,
+  "displayed": 9,
+  "limited": false,
+  "entries": [
+    {
+      "id": "1ZgjVLOdpiDWpZ6e5y258k",
+      "title": "(no title)",
+      "updatedAt": "2026-03-06T12:15:31.712Z",
+      "contentType": "cta"
+    },
+    {
+      "id": "2EO4rlTiVddCb4rDTZ1isb",
+      "title": "(no title)",
+      "updatedAt": "2026-03-05T23:54:35.307Z",
+      "contentType": "cta"
+    },
+    {
+      "id": "2d9rDYzSnwNc0jnUTj3V7k",
+      "title": "(no title)",
+      "updatedAt": "2026-03-05T21:12:39.502Z",
+      "contentType": "cta"
+    },
+    {
+      "id": "ZHqXTzm59ufFcuS078QgF",
+      "title": "(no title)",
+      "updatedAt": "2026-03-05T20:47:41.177Z",
+      "contentType": "cta"
+    },
+    {
+      "id": "3P1pEoYnIx14Ubwizuj4u",
+      "title": "(no title)",
+      "updatedAt": "2026-03-05T20:47:10.628Z",
+      "contentType": "cta"
+    },
+    {
+      "id": "2GkSKr0iSWMuG9naNGfz63",
+      "title": "(no title)",
+      "updatedAt": "2026-03-05T20:46:26.994Z",
+      "contentType": "cta"
+    },
+    {
+      "id": "OQG39e37EmAOrKXyopxMt",
+      "title": "(no title)",
+      "updatedAt": "2026-03-05T15:12:15.161Z",
+      "contentType": "cta"
+    },
+    {
+      "id": "3dWOa82k8HRzLOH1aTx2jj",
+      "title": "(no title)",
+      "updatedAt": "2026-03-05T15:03:19.295Z",
+      "contentType": "cta"
+    },
+    {
+      "id": "1gcDfKZMN6rpLfmGuKJhI9",
+      "title": "(no title)",
+      "updatedAt": "2026-03-05T15:03:01.828Z",
+      "contentType": "cta"
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 import PageTitle from '@/components/PageTitle'
 import Button from '@/components/Button'
 import { getJSONModel } from '@repo/cms-schema'
-import ScriptSteps from '@/components/ScriptSteps'
+
+import ModelsModelTabs from '@/components/page-specific/ModelsModelTabs'
 
 type Props = {
   params: Promise<{
@@ -22,25 +23,12 @@ export default async function ModelDetailPage({ params }: Props) {
     <div>
       <PageTitle title={`Model: ${model}`} subtitle='' />
 
-      <ScriptSteps
-        steps={[
-          {
-            title: 'Find usages in dev:',
-            command: `pnpm tsx scripts/models/model/find-usages.ts ${model} dev`
-          },
-          {
-            title: 'Find usages in master:',
-            command: `pnpm tsx scripts/models/model/find-usages.ts ${model} master`
-          }
-        ]}
-      />
+      <ModelsModelTabs model={model} fields={json.model.fields} />
 
       <div className='flex space-x-8'>
         <pre className='w-2/3 bg-white p-4'>{JSON.stringify(json, null, 2)}</pre>
         <div>
           <Button isDisabled>Edit Model</Button>
-          <br />
-          <br />
           <p>
             To be implemented. Check{' '}
             <a href='/models/create' className='text-lg'>
@@ -48,7 +36,6 @@ export default async function ModelDetailPage({ params }: Props) {
             </a>{' '}
             for more info
           </p>
-          
         </div>
       </div>
     </div>

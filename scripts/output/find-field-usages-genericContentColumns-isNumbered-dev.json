@@ -1,0 +1,16 @@
+{
+  "model": "genericContentColumns",
+  "field": "isNumbered",
+  "environment": "dev",
+  "totalUsages": 1,
+  "displayed": 1,
+  "limited": false,
+  "entries": [
+    {
+      "id": "7JZm7mHVKqm0ytQ0Newetj",
+      "title": "Como ter a máxima poupança no abastecimento do carro?",
+      "updatedAt": "2026-03-05T16:58:24.650Z",
+      "contentType": "genericContentColumns"
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import dotenv from 'dotenv'
 import { createClient } from 'contentful-management'
-import { normalizeSchema } from '../../scripts-utils/normalize-schema'
+import { normalizeSchema } from '../scripts-utils/normalize-schema'
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 
