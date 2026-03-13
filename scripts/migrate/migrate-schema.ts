@@ -55,7 +55,9 @@ async function run() {
   const existingMap = new Map(existingContentTypes.items.map((ct) => [ct.sys.id, ct]))
 
   const omissions: string[] = []
+  const contentTypesToOmit: string[] = []
 
+  // Detect field omissions
   for (const repoCT of repoSchema.contentTypes) {
     const existing = existingMap.get(repoCT.id)
     if (!existing) continue
@@ -69,9 +71,26 @@ async function run() {
     }
   }
 
-  if (omissions.length > 0) {
-    console.log('\nFields to be omitted:')
-    omissions.forEach((f) => console.log(` - ${f}`))
+  // Detect content types to omit
+  const repoContentTypeIds = new Set(repoSchema.contentTypes.map((ct: any) => ct.id))
+
+  for (const existingCT of existingContentTypes.items) {
+    if (!repoContentTypeIds.has(existingCT.sys.id)) {
+      contentTypesToOmit.push(existingCT.sys.id)
+    }
+  }
+
+  // Confirmation
+  if (omissions.length > 0 || contentTypesToOmit.length > 0) {
+    if (omissions.length > 0) {
+      console.log('\nFields to be omitted:')
+      omissions.forEach((f) => console.log(` - ${f}`))
+    }
+
+    if (contentTypesToOmit.length > 0) {
+      console.log('\nContent types to be omitted:')
+      contentTypesToOmit.forEach((ct) => console.log(` - ${ct}`))
+    }
 
     const ok = await confirm(
       '\nDid you run scripts/models/model/find-field-usages.ts?\n' +
@@ -185,6 +204,21 @@ async function run() {
     } else {
       console.log(`No changes: ${repoCT.id}`)
     }
+  }
+
+  // Apply content type omissions
+  for (const ctId of contentTypesToOmit) {
+    const ct = existingMap.get(ctId)
+    if (!ct) continue
+
+    console.log(`Omit content type: ${ctId}`)
+
+    ct.fields.forEach((f: any) => {
+      f.omitted = true
+    })
+
+    const updatedCT = await ct.update()
+    await updatedCT.publish()
   }
 
   console.log('\nSummary')
