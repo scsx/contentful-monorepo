@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import PageTitle from '@/components/PageTitle'
 import Button from '@/components/Button'
 import { getJSONModel } from '@repo/cms-schema'
@@ -21,7 +22,7 @@ export default async function ModelDetailPage({ params }: Props) {
 
   return (
     <div>
-      <PageTitle title={`Model: ${model}`} subtitle='' />
+      <PageTitle title={model} subtitle='Model (content type)' />
 
       <ModelsModelTabs model={model} fields={json.model.fields} />
 
@@ -31,9 +32,9 @@ export default async function ModelDetailPage({ params }: Props) {
           <Button isDisabled>Edit Model</Button>
           <p>
             To be implemented. Check{' '}
-            <a href='/models/create' className='text-lg'>
+            <Link href='/models/create' className='text-lg'>
               Model Builder
-            </a>{' '}
+            </Link>{' '}
             for more info
           </p>
         </div>

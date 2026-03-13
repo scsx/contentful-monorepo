@@ -13,15 +13,16 @@ export default function MigrateSchemaPage() {
             command: 'pnpm tsx scripts/migrate/migrate-schema.ts repo dev'
           },
           {
-            title: 'Promote schema from dev to preprod',
+            title: 'Promote schema from dev to preprod *',
             command: 'pnpm tsx scripts/migrate/migrate-schema.ts dev preprod'
           },
           {
-            title: 'Promote schema from preprod to master',
+            title: 'Promote schema from preprod to master *',
             command: 'pnpm tsx scripts/migrate/migrate-schema.ts preprod master'
           }
         ]}
       />
+      <p className='mb-8'>* Reverse envs for demotion.</p>
 
       <h2 className='pt-8 pb-4'>Example outputs from script</h2>
       <p>A new string was added to FAQs (subtitle):</p>
