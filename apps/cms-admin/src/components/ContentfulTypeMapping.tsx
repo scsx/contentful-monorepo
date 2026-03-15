@@ -7,7 +7,7 @@ type Mapping = {
 
 const mappings: Mapping[] = [
   { contentful: 'Symbol', typescript: 'string' },
-  { contentful: 'Text', typescript: 'string' },
+  { contentful: 'Text', typescript: 'string (long)' },
   { contentful: 'RichText', typescript: 'Document (JSON structure)' },
   { contentful: 'Integer', typescript: 'number' },
   { contentful: 'Number', typescript: 'number' },

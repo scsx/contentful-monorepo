@@ -10,6 +10,8 @@ import { logOmission } from './migrate-schema/log-omissions'
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 
+// TODO: all anvs; disallow repo to preprod or repo to master
+
 // 1. Parse CLI arguments
 const args = process.argv.slice(2)
 const source = args[0]
