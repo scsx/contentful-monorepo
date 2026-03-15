@@ -12,7 +12,7 @@ const client = createClient({
 
 async function run() {
   const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID!)
-  const env = await space.getEnvironment(process.env.CONTENTFUL_ENVIRONMENT!)
+  const env = await space.getEnvironment(process.env.CONTENTFUL_ENVIRONMENT_DEV!)
 
   const contentTypes = await env.getContentTypes()
 

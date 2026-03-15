@@ -10,20 +10,48 @@ import { logOmission } from './migrate-schema/log-omissions'
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 
-// TODO: all anvs; disallow repo to preprod or repo to master
+if (
+  !process.env.CONTENTFUL_ENVIRONMENT_DEV ||
+  !process.env.CONTENTFUL_ENVIRONMENT_PREPROD ||
+  !process.env.CONTENTFUL_ENVIRONMENT_PROD
+) {
+  console.error('Missing Contentful environment variables in .env')
+  process.exit(1)
+}
 
 // 1. Parse CLI arguments
 const args = process.argv.slice(2)
 const source = args[0]
 const target = args[1]
 
+const DEV = process.env.CONTENTFUL_ENVIRONMENT_DEV
+const PREPROD = process.env.CONTENTFUL_ENVIRONMENT_PREPROD
+const PROD = process.env.CONTENTFUL_ENVIRONMENT_PROD
+
+const allowedFlows: [string, string][] = [
+  ['repo', DEV],
+  [DEV, PREPROD],
+  [PREPROD, DEV],
+  [PREPROD, PROD],
+  [PROD, PREPROD]
+]
+
 if (!source || !target) {
-  console.error('Usage: pnpm tsx scripts/schema/migrate/migrate-schema.ts repo dev')
+  console.error(
+    'Usage examples:\n' +
+      '  pnpm tsx scripts/schema/migrate/migrate-schema.ts repo dev\n' +
+      '  pnpm tsx scripts/schema/migrate/migrate-schema.ts dev preprod\n' +
+      '  pnpm tsx scripts/schema/migrate/migrate-schema.ts preprod master'
+  )
   process.exit(1)
 }
 
-if (source !== 'repo') {
-  console.error('Only repo → env migrations supported for now.')
+const isAllowedFlow = allowedFlows.some(([from, to]) => from === source && to === target)
+
+if (!isAllowedFlow) {
+  console.error(`Invalid migration flow: ${source} → ${target}`)
+  console.error('Allowed flows:')
+  allowedFlows.forEach(([from, to]) => console.error(`  ${from} → ${to}`))
   process.exit(1)
 }
 
@@ -74,6 +102,7 @@ async function run() {
   let fieldsAdded = 0
   let fieldsUpdated = 0
   let fieldsOmitted = 0
+  let contentTypesOmitted = 0
 
   // 6. Iterate repo content types
   for (const repoCT of repoSchema.contentTypes) {
@@ -190,6 +219,9 @@ async function run() {
     if (!ct) continue
 
     console.log(`Omit content type: ${ctId}`)
+
+    contentTypesOmitted++
+
     // Log omissions to omitted.json
     logOmission({
       environment: target,
@@ -215,6 +247,7 @@ async function run() {
   console.log('Fields added:', fieldsAdded)
   console.log('Fields updated:', fieldsUpdated)
   console.log('Fields omitted:', fieldsOmitted)
+  console.log('Content types omitted:', contentTypesOmitted)
 }
 
 run()
