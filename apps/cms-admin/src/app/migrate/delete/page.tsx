@@ -15,7 +15,7 @@ export default function MigrateSchemaPage() {
           }
         ]}
       />
-      <p className='mb-4 pt-8'>
+      <p className='mb-4'>
         When migrating a schema to dev with deletions those items will be omitted. This script can
         clean them up afterwards.
       </p>
@@ -23,9 +23,13 @@ export default function MigrateSchemaPage() {
         Check deleted items at <Link href='/migrate/logs/deleted'>Deletion Logs</Link>.
       </p>
 
-      <pre>
-        Delete field: genericContentColumnsItem.descriptionTest Delete field:
-        genericContentColumnsItem.subtitleTest Deleted items: 2
+      <h2 className='pt-8 pb-4'>Example output from script</h2>
+      <pre className='bg-black text-white p-4 mt-4 text-base w-2/3'>
+        {`
+[dotenv@17.3.1] injecting env (7) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Delete field: genericContentColumnsItem.descriptionTest
+Delete field: genericContentColumnsItem.subtitleTest
+        `}
       </pre>
     </div>
   )

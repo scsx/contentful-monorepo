@@ -32,7 +32,7 @@ const ScriptSteps: React.FC<ScriptStepsProps> = ({ steps }) => {
 
           {step.command && (
             <div className='flex items-center'>
-              <code className='text-xl bg-white text-blue'>{step.command}</code>
+              <code className='text-xl bg-white text-blue px-2'>{step.command}</code>
 
               <CopySimpleIcon
                 className='ml-4 mr-4 cursor-pointer'

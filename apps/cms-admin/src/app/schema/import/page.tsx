@@ -14,7 +14,7 @@ export default function SchemaImportPage() {
           },
           {
             title: '2 After generate individual model files with:',
-            command: 'pnpm ...'
+            command: 'pnpm tsx scripts/schema/split/split-schema-into-files.ts'
           }
         ]}
       />
