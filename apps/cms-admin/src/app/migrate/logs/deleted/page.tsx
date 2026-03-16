@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import PageTitle from '@/components/PageTitle'
+import F36Table from '@/components/F36Table'
 
 export default function DeletedPage() {
   const filePath = path.resolve(process.cwd(), '../../packages/cms-schema/src/logs/deleted.json')
@@ -8,20 +9,24 @@ export default function DeletedPage() {
   const raw = fs.readFileSync(filePath, 'utf-8')
   const data = JSON.parse(raw)
 
+  const columns = [
+    { key: 'environment', label: 'Environment' },
+    { key: 'entity', label: 'Type' },
+    { key: 'contentType', label: 'Content Type' },
+    { key: 'date', label: 'Deleted at' }
+  ]
+
+  const rows = data.deleted.map((item: any) => ({
+    environment: item.environment,
+    entity: item.entity,
+    contentType: `${item.contentTypeId}${item.fieldId ? `.${item.fieldId}` : ''}`,
+    date: item.deletedAt
+  }))
+
   return (
     <div>
       <PageTitle title='Deletion Logs' subtitle='After being omitted.' />
-
-      <ul>
-        {data.deleted?.map((item: any, i: number) => (
-          <li key={i}>
-            <pre>
-              In: {item.environment}, type: {item.entity}, id: {item.contentTypeId}
-              {item.fieldId ? `.${item.fieldId}` : ''}, deleted: {item.deletedAt}
-            </pre>
-          </li>
-        ))}
-      </ul>
+      <F36Table columns={columns} data={rows} />
     </div>
   )
 }
