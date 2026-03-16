@@ -4,7 +4,7 @@ export default function LogsMasterPage() {
   return (
     <div>
       <PageTitle
-        title='Migrations to dev Logs'
+        title='Migrations to master Logs'
         subtitle='Reading from packages/cms-schema/src/logs/master-migration-log.json'
       />
 

@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import PageTitle from '@/components/PageTitle'
 import F36Table from '@/components/F36Table'
+import Link from 'next/link'
 
 export default function OmittedPage() {
   const filePath = path.resolve(process.cwd(), '../../packages/cms-schema/src/logs/omitted.json')
@@ -27,7 +28,14 @@ export default function OmittedPage() {
     <div>
       <PageTitle title='Omission Logs' />
 
-      <F36Table columns={columns} data={rows} />
+      {rows.length === 0 ? (
+        <p>
+          No omissions detected. Check deleted items at{' '}
+          <Link href='/migrate/logs/deleted'>Deletion Logs</Link>.
+        </p>
+      ) : (
+        <F36Table columns={columns} data={rows} />
+      )}
     </div>
   )
 }

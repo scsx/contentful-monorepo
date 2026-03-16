@@ -22,6 +22,11 @@ export default function MigrateSchemaPage() {
       <p className='mb-8'>
         Check deleted items at <Link href='/migrate/logs/deleted'>Deletion Logs</Link>.
       </p>
+
+      <pre>
+        Delete field: genericContentColumnsItem.descriptionTest Delete field:
+        genericContentColumnsItem.subtitleTest Deleted items: 2
+      </pre>
     </div>
   )
 }
