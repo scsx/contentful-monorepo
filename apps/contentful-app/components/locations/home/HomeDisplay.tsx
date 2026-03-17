@@ -1,19 +1,51 @@
 import React from 'react'
-import { Paragraph } from '@contentful/f36-components'
+import { Paragraph, Heading, Box, Grid } from '@contentful/f36-components'
+import styles from './HomeDisplay.module.scss'
 
 const HomeDisplay = () => {
+  const columns = [
+    {
+      title: 'www.countries.com',
+      links: ['Confluence', 'Docs', 'Design', 'API Reference', 'Guidelines']
+    },
+    {
+      title: 'www.cars.com',
+      links: ['Docs', 'Editor Team', 'Design System', 'Components', 'Best Practices']
+    },
+    {
+      title: 'Updates',
+      links: ['Changelog', 'Roadmap', 'Announcements', 'Latest News', 'Releases']
+    }
+  ]
+
   return (
-    <div>
-      <Paragraph marginTop='spacingM' marginBottom='spacingM'>
-        This is Home Display
-      </Paragraph>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src='https://www.estadao.com.br/resizer/v2/AZMGCEQCVFNPFBDI4PTSUV6GTU.jpg?quality=80&auth=80cfeced1b5f0fb585922c5fdfe8c9bf372e817d07aac11bf7a035995da55989&width=1200&height=1200&smart=true'
-        style={{ width: '33%', height: 'auto' }}
-        alt='Homer'
-      />
-    </div>
+    <Box padding='spacingL'>
+      <Heading as='h1' marginTop='spacingM' marginBottom='spacingL' className={styles.pageTitle}>
+        Contentful Homepage
+      </Heading>
+
+      <Grid columns={3} columnGap='spacingL' rowGap='spacingL' className={styles.linksGrid}>
+        {columns.map((column) => (
+          <Box key={column.title} padding='spacingM' border='neutral' borderRadius='medium'>
+            <Heading as='h2' marginBottom='spacingM' fontSize='fontSizeXl'>
+              {column.title}
+            </Heading>
+
+            <Box as='ul' className={styles.linksList}>
+              {column.links.map((link) => (
+                <Box as='li' key={link} marginBottom='spacingS'>
+                  <Paragraph fontSize='fontSizeXl'>
+                    <a href='#' className={styles.link}>
+                      {link}
+                    </a>
+                  </Paragraph>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        ))}
+      </Grid>
+    </Box>
   )
 }
 
