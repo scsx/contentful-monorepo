@@ -1,4 +1,5 @@
 import { colors } from '@repo/utils'
+import { FieldType } from '../source-types/field-types'
 
 export const cta = {
   schema: {
@@ -10,7 +11,7 @@ export const cta = {
         {
           id: 'ctaBgColour',
           name: 'CTA Bg Colour',
-          type: 'Symbol',
+          type: FieldType.SYMBOL,
           localized: false,
           required: false,
           validations: [
@@ -24,7 +25,7 @@ export const cta = {
         {
           id: 'ctaText',
           name: 'CTA Text',
-          type: 'Symbol',
+          type: FieldType.SYMBOL,
           localized: false,
           required: true,
           validations: [],
@@ -34,7 +35,7 @@ export const cta = {
         {
           id: 'ctaUrl',
           name: 'CTA url',
-          type: 'Symbol',
+          type: FieldType.SYMBOL,
           localized: false,
           required: true,
           validations: [
