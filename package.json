@@ -13,7 +13,7 @@
     "dev": "pnpm -r dev",
     "web": "pnpm --filter web exec next dev -p 3000",
     "admin": "pnpm --filter cms-admin exec next dev -p 3001",
-    "app": "pnpm --filter contentful-app dev",
+    "app": "pnpm --filter contentful-app exec next dev -p 3002",
     "all": "pnpm --parallel --filter web --filter cms-admin --filter contentful-app exec next dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
