@@ -53,7 +53,12 @@ export const cta = {
       ]
     }
   },
-  sidebar: {
-    html: "<div class='cta-sidebar'>This is a CTA (button) element</div>"
+  interface: {
+    // Editor Interface — como os campos aparecem no editor (helper text, appearance, widget, aspect ratio, etc)
+  },
+  app: {
+    sidebar: {
+      html: "<div>CTA element (button)</div>"
+    }
   }
 }

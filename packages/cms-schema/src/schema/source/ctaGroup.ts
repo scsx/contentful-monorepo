@@ -59,7 +59,9 @@ export const ctaGroup = {
       ]
     }
   },
-  sidebar: {
-    html: "<div class='cta-group-sidebar'>Group of CTA elements</div>"
+  app: {
+    sidebar: {
+      html: '<div>Group of CTA elements</div>'
+    }
   }
 }
