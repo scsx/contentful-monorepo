@@ -29,6 +29,15 @@
       ],
       "@/styles/*": [
         "styles/*"
+      ],
+      "@repo/utils": [
+        "../../packages/utils/src"
+      ],
+      "@repo/cms-schema": [
+        "../../packages/cms-schema/src"
+      ],
+      "@repo/cms-schema/*": [
+        "../../packages/cms-schema/src/*"
       ]
     }
   },

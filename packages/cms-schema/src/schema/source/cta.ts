@@ -1,5 +1,6 @@
 import { colors } from '@repo/utils'
 import { FieldType } from '../source-types/field-types'
+import { WidgetId } from '../source-types/widgets'
 
 export const cta = {
   schema: {
@@ -11,7 +12,7 @@ export const cta = {
         {
           id: 'ctaBgColour',
           name: 'CTA Bg Colour',
-          type: FieldType.SYMBOL,
+          type: WidgetId.COLOR_PICKER,
           localized: false,
           required: false,
           validations: [
@@ -54,11 +55,14 @@ export const cta = {
     }
   },
   interface: {
-    // Editor Interface — como os campos aparecem no editor (helper text, appearance, widget, aspect ratio, etc)
+    ctaBgColour: {
+      widget: 'app',
+      widgetNamespace: 'my-app-id'
+    }
   },
   app: {
     sidebar: {
-      html: "<div>CTA element (button)</div>"
+      html: '<div>CTA element (button)</div>'
     }
   }
 }
