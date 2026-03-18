@@ -7,6 +7,18 @@
     ".": {
       "import": "./src/index.ts",
       "types": "./src/index.ts"
+    },
+    "./design/colors": {
+      "import": "./src/design/colors.ts",
+      "types": "./src/design/colors.ts"
+    },
+    "./design/spacing": {
+      "import": "./src/design/spacing.ts",
+      "types": "./src/design/spacing.ts"
+    },
+    "./design/typography": {
+      "import": "./src/design/typography.ts",
+      "types": "./src/design/typography.ts"
     }
   }
 }

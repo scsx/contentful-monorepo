@@ -12,4 +12,4 @@ export const containers = {
   '5xl': '24rem',
   '6xl': '26rem',
   '7xl': '28rem'
-} as const
+}

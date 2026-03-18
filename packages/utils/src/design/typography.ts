@@ -7,11 +7,11 @@ export const fontSizes = {
   h6: '18px',
   s: '16px',
   xs: '14px'
-} as const
+}
 
 export const fontWeights = {
   light: 300,
   regular: 400,
   semiBold: 600,
   bold: 700
-} as const
+}

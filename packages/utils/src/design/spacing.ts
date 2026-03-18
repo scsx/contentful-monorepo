@@ -9,4 +9,4 @@ export const spacing = {
   xl: '32px',
   xxl: '40px',
   '4xl': '48px'
-} as const
+}

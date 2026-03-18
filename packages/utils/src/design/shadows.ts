@@ -5,4 +5,4 @@ export const shadows = {
   m: '0 4px 6px rgba(0,0,0,.1)',
   l: '0 6px 8px rgba(0,0,0,.1)',
   xl: '0 8px 10px rgba(0,0,0,.1)'
-} as const
+}
