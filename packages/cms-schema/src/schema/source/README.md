@@ -4,7 +4,7 @@ This folder contains the single source of truth for the Contentful content model
 
 ## Structure
 
-Each `.ts` file corresponds to a content type:
+Each `.ts` file corresponds to a content type (aka model):
 
 ```typescript
 export const modelName = {
@@ -27,6 +27,10 @@ export const modelName = {
       helpText: 'Help text',
       widget: 'radio'
     }
+  },
+  taxonomy: {
+    // Mandatory
+    ...
   },
   app: {
     sidebar: {

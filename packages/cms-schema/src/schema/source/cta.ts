@@ -12,6 +12,7 @@ export const cta = {
         {
           id: 'ctaBgColour',
           name: 'CTA Bg Colour',
+          // TODO: não é type color picker, é string, o color picker tem que ser definido na interface. Ver TODO em baixo.
           type: WidgetId.COLOR_PICKER,
           localized: false,
           required: false,
@@ -54,6 +55,18 @@ export const cta = {
       ]
     }
   },
+  // TODO: testar:
+  /*
+  interface: {
+  ctaBgColour: {
+    widget: 'app',
+    widgetNamespace: 'my-app-id',
+    settings: {
+      widgetId: WidgetId.COLOR_PICKER
+    }
+  }
+}
+  */
   interface: {
     ctaBgColour: {
       widget: 'app',
