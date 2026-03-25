@@ -10,7 +10,7 @@ export default function SchemaJoinPage() {
         steps={[
           {
             title: 'Generate final schema.json from individual model files (.json) with:',
-            command: 'pnpm ...'
+            command: 'pnpm tsx scripts/schema/join/join-files-into-schema.ts'
           }
         ]}
       />
