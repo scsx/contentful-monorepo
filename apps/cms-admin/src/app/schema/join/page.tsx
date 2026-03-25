@@ -9,7 +9,7 @@ export default function SchemaJoinPage() {
       <ScriptSteps
         steps={[
           {
-            title: 'Generate final schema.json from individual model files with:',
+            title: 'Generate final schema.json from individual model files (.json) with:',
             command: 'pnpm ...'
           }
         ]}
