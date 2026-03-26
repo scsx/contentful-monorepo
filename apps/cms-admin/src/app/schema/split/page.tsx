@@ -8,7 +8,7 @@ export default function SchemaSplitPage() {
       <ScriptSteps
         steps={[
           {
-            title: 'Generate individual model files from schema.json with:',
+            title: 'Generate individual model files (.json) from schema.json with:',
             command: 'pnpm tsx scripts/schema/split/split-schema-into-files.ts'
           }
         ]}
