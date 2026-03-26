@@ -1,10 +1,21 @@
+'use client'
+
 import PageTitle from '@/components/PageTitle'
 import ScriptSteps from '@/components/ScriptSteps'
+import Link from 'next/link'
+
+import { Note } from '@contentful/f36-components'
 
 export default function MigrateSchemaPage() {
   return (
     <div>
       <PageTitle title='Migrate Schema' />
+
+      <Note variant='warning' className='w-1/2 mb-8'>
+        Before migration you probably edited the{' '}
+        <Link href='/models/source'>source files</Link> and {' '}
+        <Link href='/schema/join'>joined</Link> them.
+      </Note>
 
       <ScriptSteps
         steps={[
