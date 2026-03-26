@@ -1,122 +1,35 @@
 {
-  "schemaVersion": "1",
-  "generatedAt": "2026-03-10T02:25:21.316Z",
+  "schemaVersion": "2",
+  "generatedAt": "2026-03-26T00:03:17.516Z",
   "contentTypes": [
-    {
-      "id": "dynamicPage",
-      "name": "Dynamic Page",
-      "description": "Page, consumes blocks, has slug",
-      "fields": [
-        {
-          "id": "name",
-          "name": "Name",
-          "type": "Symbol",
-          "localized": false,
-          "required": true,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "slug",
-          "name": "Slug",
-          "type": "Symbol",
-          "localized": false,
-          "required": true,
-          "validations": [
-            {
-              "unique": true
-            },
-            {
-              "regexp": {
-                "pattern": "^[a-z0-9-/]+$",
-                "flags": null
-              }
-            }
-          ],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "blocks",
-          "name": "Blocks",
-          "type": "Array",
-          "localized": false,
-          "required": false,
-          "validations": [],
-          "disabled": false,
-          "omitted": false,
-          "items": {
-            "type": "Link",
-            "validations": [
-              {
-                "linkContentType": ["blockWrapper"]
-              }
-            ],
-            "linkType": "Entry"
-          }
-        }
-      ]
-    },
     {
       "id": "blockWrapper",
       "name": "Block",
       "description": "Block, consumes elements",
       "fields": [
         {
-          "id": "name",
-          "name": "Name",
-          "type": "Symbol",
-          "localized": false,
-          "required": true,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "content",
-          "name": "Content",
-          "type": "Link",
-          "localized": false,
-          "required": true,
-          "validations": [],
-          "disabled": false,
-          "omitted": false,
-          "linkType": "Entry"
-        },
-        {
-          "id": "width",
-          "name": "Width",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-            {
-              "in": ["1/3", "1/2", "2/3", "Full"]
-            }
-          ],
-          "defaultValue": {
-            "en-US": "Full"
-          },
-          "disabled": false,
-          "omitted": false
-        },
-        {
           "id": "backgroundColour",
           "name": "Background Colour",
           "type": "Symbol",
           "localized": false,
           "required": false,
+          "disabled": false,
+          "omitted": false,
           "validations": [
             {
-              "in": ["none", "white", "primary", "secondary", "alternative", "neutral"]
+              "in": [
+                "alternative",
+                "neutral",
+                "none",
+                "primary",
+                "secondary",
+                "white"
+              ]
             }
           ],
           "defaultValue": {
             "en-US": "white"
-          },
-          "disabled": false,
-          "omitted": false
+          }
         },
         {
           "id": "backgroundImage",
@@ -124,44 +37,10 @@
           "type": "Link",
           "localized": false,
           "required": false,
-          "validations": [],
           "disabled": false,
           "omitted": false,
+          "validations": [],
           "linkType": "Asset"
-        },
-        {
-          "id": "paddingTop",
-          "name": "Padding Top",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-            {
-              "in": ["none", "xs", "s", "m", "l", "xl"]
-            }
-          ],
-          "defaultValue": {
-            "en-US": "m"
-          },
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "paddingBottom",
-          "name": "Padding Bottom",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-            {
-              "in": ["none", "xs", "s", "m", "l", "xl"]
-            }
-          ],
-          "defaultValue": {
-            "en-US": "m"
-          },
-          "disabled": false,
-          "omitted": false
         },
         {
           "id": "centerVertically",
@@ -169,199 +48,103 @@
           "type": "Boolean",
           "localized": false,
           "required": false,
+          "disabled": false,
+          "omitted": false,
           "validations": [],
           "defaultValue": {
             "en-US": true
-          },
-          "disabled": false,
-          "omitted": false
-        }
-      ]
-    },
-    {
-      "id": "genericContentColumns",
-      "name": "Generic Content Columns",
-      "description": "Block",
-      "fields": [
-        {
-          "id": "name",
-          "name": "Name",
-          "type": "Symbol",
-          "localized": false,
-          "required": true,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "title",
-          "name": "Title",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "subtitle",
-          "name": "Subtitle",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "items",
-          "name": "Items",
-          "type": "Array",
-          "localized": false,
-          "required": true,
-          "validations": [
-            {
-              "size": {
-                "min": 2,
-                "max": null
-              }
-            }
-          ],
-          "disabled": false,
-          "omitted": false,
-          "items": {
-            "type": "Link",
-            "validations": [
-              {
-                "linkContentType": ["genericContentColumnsItem"]
-              }
-            ],
-            "linkType": "Entry"
           }
         },
         {
-          "id": "isCarousel",
-          "name": "Is Carousel",
-          "type": "Boolean",
-          "localized": false,
-          "required": false,
-          "validations": [],
-          "defaultValue": {
-            "en-US": false
-          },
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "isNumbered",
-          "name": "Is Numbered",
-          "type": "Boolean",
-          "localized": false,
-          "required": false,
-          "validations": [],
-          "defaultValue": {
-            "en-US": false
-          },
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "imagesHeight",
-          "name": "Images Height",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-            {
-              "in": ["short", "normal", "tall"]
-            }
-          ],
-          "defaultValue": {
-            "en-US": "normal"
-          },
-          "disabled": false,
-          "omitted": false
-        }
-      ]
-    },
-    {
-      "id": "ctaGroup",
-      "name": "CTA Group",
-      "description": "Block",
-      "fields": [
-        {
-          "id": "name",
-          "name": "Name",
-          "type": "Symbol",
-          "localized": false,
-          "required": true,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "titleAndSubtitle",
-          "name": "Title and Subtitle",
+          "id": "content",
+          "name": "Content",
           "type": "Link",
           "localized": false,
-          "required": false,
-          "validations": [
-            {
-              "linkContentType": ["titleAndText"]
-            }
-          ],
+          "required": true,
           "disabled": false,
           "omitted": false,
+          "validations": [],
           "linkType": "Entry"
         },
         {
-          "id": "items",
-          "name": "items",
-          "type": "Array",
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [],
           "disabled": false,
           "omitted": false,
-          "items": {
-            "type": "Link",
-            "validations": [
-              {
-                "linkContentType": ["cta"]
-              }
-            ],
-            "linkType": "Entry"
-          }
+          "validations": []
         },
         {
-          "id": "direction",
-          "name": "Direction",
-          "type": "Boolean",
-          "localized": false,
-          "required": false,
-          "validations": [],
-          "defaultValue": {
-            "en-US": true
-          },
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "alignment",
-          "name": "Alignment",
+          "id": "paddingBottom",
+          "name": "Padding Bottom",
           "type": "Symbol",
           "localized": false,
           "required": false,
+          "disabled": false,
+          "omitted": false,
           "validations": [
             {
-              "in": ["left", "center", "right", "full"]
+              "in": [
+                "l",
+                "m",
+                "none",
+                "s",
+                "xl",
+                "xs"
+              ]
             }
           ],
           "defaultValue": {
-            "en-US": "center"
-          },
+            "en-US": "m"
+          }
+        },
+        {
+          "id": "paddingTop",
+          "name": "Padding Top",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
           "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": [
+            {
+              "in": [
+                "l",
+                "m",
+                "none",
+                "s",
+                "xl",
+                "xs"
+              ]
+            }
+          ],
+          "defaultValue": {
+            "en-US": "m"
+          }
+        },
+        {
+          "id": "width",
+          "name": "Width",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": [
+            {
+              "in": [
+                "1/2",
+                "1/3",
+                "2/3",
+                "Full"
+              ]
+            }
+          ],
+          "defaultValue": {
+            "en-US": "Full"
+          }
         }
       ]
     },
@@ -376,9 +159,9 @@
           "type": "Symbol",
           "localized": false,
           "required": false,
-          "validations": [],
           "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": []
         },
         {
           "id": "style",
@@ -386,30 +169,53 @@
           "type": "Symbol",
           "localized": false,
           "required": false,
+          "disabled": false,
+          "omitted": false,
           "validations": [
             {
-              "in": ["default", "large"]
+              "in": [
+                "default",
+                "large"
+              ]
             }
-          ],
-          "disabled": false,
-          "omitted": false
+          ]
         }
       ]
     },
     {
       "id": "cta",
       "name": "CTA",
-      "description": "Element (Call To Action link)",
+      "description": "Element (link)",
       "fields": [
+        {
+          "id": "ctaBgColour",
+          "name": "CTA Bg Colour",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": [
+            {
+              "in": [
+                "alternative",
+                "neutral",
+                "primary",
+                "secondary",
+                "white"
+              ]
+            }
+          ]
+        },
         {
           "id": "ctaText",
           "name": "CTA Text",
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [],
           "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": []
         },
         {
           "id": "ctaUrl",
@@ -417,6 +223,8 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
+          "disabled": false,
+          "omitted": false,
           "validations": [
             {
               "regexp": {
@@ -424,60 +232,36 @@
                 "flags": null
               }
             }
-          ],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "ctaBgColour",
-          "name": "CTA Bg Colour",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-            {
-              "in": ["primary", "secondary", "alternative", "neutral", "white"]
-            }
-          ],
-          "disabled": false,
-          "omitted": false
+          ]
         }
       ]
     },
     {
-      "id": "timeline",
-      "name": "Timeline",
+      "id": "ctaGroup",
+      "name": "CTA Group",
       "description": "Block",
       "fields": [
         {
-          "id": "name",
-          "name": "Name",
-          "type": "Symbol",
-          "localized": false,
-          "required": true,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "timeline",
-          "name": "Timeline",
+          "id": "alignment",
+          "name": "Alignment",
           "type": "Symbol",
           "localized": false,
           "required": false,
-          "validations": [],
           "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "items",
-          "name": "Items",
-          "type": "Object",
-          "localized": false,
-          "required": false,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": [
+            {
+              "in": [
+                "center",
+                "full",
+                "left",
+                "right"
+              ]
+            }
+          ],
+          "defaultValue": {
+            "en-US": "center"
+          }
         },
         {
           "id": "direction",
@@ -485,57 +269,118 @@
           "type": "Boolean",
           "localized": false,
           "required": false,
+          "disabled": false,
+          "omitted": false,
           "validations": [],
           "defaultValue": {
             "en-US": true
-          },
-          "disabled": false,
-          "omitted": false
+          }
         },
         {
-          "id": "color",
-          "name": "Color",
-          "type": "Boolean",
+          "id": "items",
+          "name": "items",
+          "type": "Array",
           "localized": false,
-          "required": false,
-          "validations": [],
-          "defaultValue": {
-            "en-US": true
-          },
+          "required": true,
           "disabled": false,
-          "omitted": false
-        }
-      ]
-    },
-    {
-      "id": "largeHero",
-      "name": "Large Hero",
-      "description": "Block",
-      "fields": [
+          "omitted": false,
+          "validations": [],
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "cta"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
         {
           "id": "name",
           "name": "Name",
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [],
           "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": []
         },
         {
-          "id": "content",
-          "name": "Content",
+          "id": "titleAndSubtitle",
+          "name": "Title and Subtitle",
           "type": "Link",
           "localized": false,
           "required": false,
-          "validations": [
-            {
-              "linkContentType": ["titleAndText"]
-            }
-          ],
           "disabled": false,
           "omitted": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "titleAndText"
+              ]
+            }
+          ],
           "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "id": "dynamicPage",
+      "name": "Dynamic Page",
+      "description": "Page, consumes blocks",
+      "fields": [
+        {
+          "id": "blocks",
+          "name": "Blocks",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": [],
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "blockWrapper"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "disabled": false,
+          "omitted": false,
+          "validations": []
+        },
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "disabled": false,
+          "omitted": false,
+          "validations": [
+            {
+              "regexp": {
+                "pattern": "^[a-z0-9-/]+$",
+                "flags": null
+              }
+            },
+            {
+              "unique": true
+            }
+          ]
         }
       ]
     },
@@ -545,14 +390,35 @@
       "description": "Block",
       "fields": [
         {
+          "id": "items",
+          "name": "Items",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "disabled": false,
+          "omitted": false,
+          "validations": [],
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "titleAndText"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
           "id": "name",
           "name": "Name",
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [],
           "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": []
         },
         {
           "id": "title",
@@ -560,9 +426,63 @@
           "type": "Symbol",
           "localized": false,
           "required": false,
-          "validations": [],
           "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": []
+        }
+      ]
+    },
+    {
+      "id": "genericContentColumns",
+      "name": "Generic Content Columns",
+      "description": "Block",
+      "fields": [
+        {
+          "id": "imagesHeight",
+          "name": "Images Height",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": [
+            {
+              "in": [
+                "normal",
+                "short",
+                "tall"
+              ]
+            }
+          ],
+          "defaultValue": {
+            "en-US": "normal"
+          }
+        },
+        {
+          "id": "isCarousel",
+          "name": "Is Carousel",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": [],
+          "defaultValue": {
+            "en-US": false
+          }
+        },
+        {
+          "id": "isNumbered",
+          "name": "Is Numbered",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": [],
+          "defaultValue": {
+            "en-US": false
+          }
         },
         {
           "id": "items",
@@ -570,45 +490,57 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [],
           "disabled": false,
           "omitted": false,
+          "validations": [
+            {
+              "size": {
+                "min": 2,
+                "max": null
+              }
+            }
+          ],
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": ["titleAndText"]
+                "linkContentType": [
+                  "genericContentColumnsItem"
+                ]
               }
             ],
             "linkType": "Entry"
           }
-        }
-      ]
-    },
-    {
-      "id": "titleAndText",
-      "name": "Title And Text",
-      "description": "Sub-block - For FAQs, text blocks, etc",
-      "fields": [
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "disabled": false,
+          "omitted": false,
+          "validations": []
+        },
+        {
+          "id": "subtitle",
+          "name": "Subtitle",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": []
+        },
         {
           "id": "title",
           "name": "Title",
           "type": "Symbol",
           "localized": false,
-          "required": true,
-          "validations": [],
+          "required": false,
           "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "text",
-          "name": "Text",
-          "type": "Symbol",
-          "localized": false,
-          "required": true,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": []
         }
       ]
     },
@@ -618,14 +550,15 @@
       "description": "Sub-block",
       "fields": [
         {
-          "id": "title",
-          "name": "Title",
-          "type": "Symbol",
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
           "localized": false,
-          "required": true,
-          "validations": [],
+          "required": false,
           "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": [],
+          "linkType": "Asset"
         },
         {
           "id": "text",
@@ -633,6 +566,8 @@
           "type": "RichText",
           "localized": false,
           "required": true,
+          "disabled": false,
+          "omitted": false,
           "validations": [
             {
               "enabledMarks": [
@@ -671,20 +606,17 @@
             {
               "nodes": {}
             }
-          ],
-          "disabled": false,
-          "omitted": false
+          ]
         },
         {
-          "id": "image",
-          "name": "Image",
-          "type": "Link",
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
           "localized": false,
-          "required": false,
-          "validations": [],
+          "required": true,
           "disabled": false,
           "omitted": false,
-          "linkType": "Asset"
+          "validations": []
         }
       ]
     },
@@ -694,24 +626,42 @@
       "description": "Block",
       "fields": [
         {
+          "id": "backgroundImage",
+          "name": "Background Image",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "disabled": false,
+          "omitted": false,
+          "validations": [],
+          "linkType": "Asset"
+        },
+        {
+          "id": "cta",
+          "name": "CTA",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "cta"
+              ]
+            }
+          ],
+          "linkType": "Entry"
+        },
+        {
           "id": "name",
           "name": "Name",
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [],
           "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "title",
-          "name": "Title",
-          "type": "Symbol",
-          "localized": false,
-          "required": true,
-          "validations": [],
-          "disabled": false,
-          "omitted": false
+          "omitted": false,
+          "validations": []
         },
         {
           "id": "text",
@@ -719,6 +669,8 @@
           "type": "RichText",
           "localized": false,
           "required": false,
+          "disabled": false,
+          "omitted": false,
           "validations": [
             {
               "enabledMarks": [
@@ -757,35 +709,141 @@
             {
               "nodes": {}
             }
-          ],
-          "disabled": false,
-          "omitted": false
+          ]
         },
         {
-          "id": "backgroundImage",
-          "name": "Background Image",
-          "type": "Link",
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [],
           "disabled": false,
           "omitted": false,
-          "linkType": "Asset"
-        },
+          "validations": []
+        }
+      ]
+    },
+    {
+      "id": "largeHero",
+      "name": "Large Hero",
+      "description": "Block",
+      "fields": [
         {
-          "id": "cta",
-          "name": "CTA",
+          "id": "content",
+          "name": "Content",
           "type": "Link",
           "localized": false,
           "required": false,
-          "validations": [
-            {
-              "linkContentType": ["cta"]
-            }
-          ],
           "disabled": false,
           "omitted": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "titleAndText"
+              ]
+            }
+          ],
           "linkType": "Entry"
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "disabled": false,
+          "omitted": false,
+          "validations": []
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "name": "Timeline",
+      "description": "Block",
+      "fields": [
+        {
+          "id": "color",
+          "name": "Color",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": [],
+          "defaultValue": {
+            "en-US": true
+          }
+        },
+        {
+          "id": "direction",
+          "name": "Direction",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": [],
+          "defaultValue": {
+            "en-US": true
+          }
+        },
+        {
+          "id": "items",
+          "name": "Items",
+          "type": "Object",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": []
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "disabled": false,
+          "omitted": false,
+          "validations": []
+        },
+        {
+          "id": "timeline",
+          "name": "Timeline",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "validations": []
+        }
+      ]
+    },
+    {
+      "id": "titleAndText",
+      "name": "Title And Text",
+      "description": "Sub-block - For FAQs, text blocks, etc",
+      "fields": [
+        {
+          "id": "text",
+          "name": "Text",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "disabled": false,
+          "omitted": false,
+          "validations": []
+        },
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "disabled": false,
+          "omitted": false,
+          "validations": []
         }
       ]
     }

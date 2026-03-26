@@ -75,7 +75,7 @@ function run() {
     contentTypes
   }
 
-  // Normalize schema
+  // Normalize schema (sorts everything alphabetically, preserves all fields)
   const normalizedSchema = normalizeSchema(newSchema)
 
   // Write to file

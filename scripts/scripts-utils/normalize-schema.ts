@@ -4,6 +4,7 @@
  * - Sorts content types and fields by id
  * - Sorts validation rules and enum ("in") arrays
  * - Normalizes boolean flags and removes ordering noise
+ * - Preserves all field properties (defaultValue, linkType, items, etc)
  *
  * This ensures stable output across environments and executions,
  * making Git diffs predictable, enabling reliable drift detection,
@@ -35,7 +36,8 @@ export function normalizeSchema(schema: any) {
           .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)))
       : []
 
-    return {
+    // Build normalized field, preserving all properties
+    const normalizedField: any = {
       id: field.id,
       name: field.name,
       type: field.type,
@@ -45,6 +47,19 @@ export function normalizeSchema(schema: any) {
       omitted: !!field.omitted,
       validations: normalizedValidations
     }
+
+    // Preserve optional properties
+    if (field.defaultValue !== undefined) {
+      normalizedField.defaultValue = field.defaultValue
+    }
+    if (field.linkType !== undefined) {
+      normalizedField.linkType = field.linkType
+    }
+    if (field.items !== undefined) {
+      normalizedField.items = field.items
+    }
+
+    return normalizedField
   }
 
   const normalizeValidation = (validation: any) => {
@@ -66,6 +81,7 @@ export function normalizeSchema(schema: any) {
 
   return {
     schemaVersion: schema.schemaVersion ?? null,
+    generatedAt: schema.generatedAt ?? null,
     contentTypes: normalizedContentTypes
   }
 }
