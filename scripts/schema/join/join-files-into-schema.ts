@@ -131,21 +131,32 @@ async function run() {
   }
 
   if (deletedModels.length > 0) {
-    console.log('\n⚠️  The following models will be DELETED:')
+    console.log('\n❌ ABORT: The following models will be DELETED but are still referenced:\n')
+    let hasConflicts = false
+
     for (const modelId of deletedModels) {
       const dependents = findDependents(modelId, oldModels)
       if (dependents.length > 0) {
-        console.log(`  ❌ ${modelId} (Referenced by: ${dependents.join(', ')})`)
-      } else {
-        console.log(`  ✓ ${modelId}`)
+        console.log(
+          `  ❌ "${modelId}" is referenced by: ${dependents.map((d) => `"${d}"`).join(', ')}`
+        )
+        hasConflicts = true
       }
     }
 
-    const answer = await prompt('\nDo you want to proceed? (yes/no): ')
-    if (answer !== 'yes' && answer !== 'y') {
-      console.log('Cancelled.')
-      process.exit(0)
+    if (hasConflicts) {
+      console.log('\n📋 ACTION REQUIRED:')
+      console.log('  1. Replace the references in the dependent models')
+      console.log(
+        '  2. Update the corresponding .json files in packages/cms-schema/src/schema/models/'
+      )
+      console.log('  3. Run the script again\n')
+      process.exit(1)
     }
+
+    // If we reach here, no conflicts, but show which models will be safely deleted
+    console.log('\n✓ Safe to delete:')
+    deletedModels.forEach((m) => console.log(`  ✓ ${m}`))
   }
 
   // Increment schemaVersion
