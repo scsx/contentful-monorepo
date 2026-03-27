@@ -1,22 +1,17 @@
 export const colors = {
   transparent: 'transparent',
-  primary: '#e60000',
-  secondary: '#4a4d4e',
-  tertiary: '#25282b',
-  error: '#bd0000',
-  warning: '#eb6100',
-  success: '#008a00',
-  info: '#005ea5',
-  neutral: {
-    0: '#ffffff',
-    1: '#f2f2f2',
-    2: '#bebebe',
-    3: '#7e7e7e',
-    4: '#262626',
-    5: '#0d0d0d'
-  },
-  turquoise: '#00697c',
-  purple: '#5e2750',
-  yellow: '#fecb00',
-  pink: '#9c2aa0'
+
+  red: '#D0342C', // vermelho principal
+  coral: '#E07A6A', // coral
+  grey: '#5F5E58', // cinza escuro quente
+
+  green: '#0F8A44', // verde
+  blue: '#4864A6', // azul
+
+  offWhite: '#EAE7DC', 
+  beigeLight: '#D6D0C4', // bege claro
+  beige: '#C9B79C', // bege mais forte
+
+  black: '#1E1E1E',
+  white: '#FFFFFF'
 }
