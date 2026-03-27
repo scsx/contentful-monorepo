@@ -115,20 +115,24 @@ async function run() {
   }
 
   if (deletedModels.length > 0) {
-    console.log('\n❌ ABORT: The following models will be DELETED but are still referenced:\n')
     let hasConflicts = false
+    const danglingReferences: string[] = []
 
     for (const modelId of deletedModels) {
       const dependents = findDependents(modelId, oldModels)
-      if (dependents.length > 0) {
+      // Only flag as conflict if dependents are NOT also being deleted
+      const externalDependents = dependents.filter((d) => !deletedModels.includes(d))
+      if (externalDependents.length > 0) {
         console.log(
-          `  ❌ "${modelId}" is referenced by: ${dependents.map((d) => `"${d}"`).join(', ')}`
+          `  ❌ "${modelId}" is referenced by: ${externalDependents.map((d) => `"${d}"`).join(', ')}`
         )
+        danglingReferences.push(...externalDependents)
         hasConflicts = true
       }
     }
 
     if (hasConflicts) {
+      console.log('\n❌ ABORT: The following models will be DELETED but are still referenced:\n')
       console.log('\n📋 ACTION REQUIRED:')
       console.log('  1. Replace the references in the dependent models')
       console.log(
