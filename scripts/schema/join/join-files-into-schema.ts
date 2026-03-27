@@ -1,25 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { normalizeSchema } from '../../scripts-utils/normalize-schema'
-import { createInterface } from 'node:readline'
 
 const fullSchemaPath = path.resolve('packages/cms-schema/src/schema/full/schema.json')
 const modelsDir = path.resolve('packages/cms-schema/src/schema/models')
-
-// Helper to prompt user
-function prompt(question: string): Promise<string> {
-  const rl = createInterface({
-    input: process.stdin,
-    output: process.stdout
-  })
-
-  return new Promise((resolve) => {
-    rl.question(question, (answer) => {
-      rl.close()
-      resolve(answer.toLowerCase())
-    })
-  })
-}
 
 // Extract all referenced content type IDs from a model
 function getReferences(model: any): string[] {
