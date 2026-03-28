@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function ActionsPage() {
   return (
     <div>
-      <PageTitle title='ACTIONS' subtitle='Utilities and schema management' />
+      <PageTitle title='Actions' subtitle='Utilities and schema management' />
 
       <div className='space-y-6'>
         <p>
@@ -14,12 +14,13 @@ export default function ActionsPage() {
 
         <div className='space-y-4'>
           <h2>Available Actions:</h2>
-          <ul className='space-y-3'>
+          <ul className='space-y-3 pl-4'>
             <li>
               <Link href='/actions/view' className='text-blue-600 hover:underline'>
                 View Schema
               </Link>
-              {' - '} Browse your current schema structure
+              {' - '} Schema structure and details for each model (content type), including{' '}
+              <b>usages</b>.
             </li>
             <li>
               <Link href='/actions/compare' className='text-blue-600 hover:underline'>
