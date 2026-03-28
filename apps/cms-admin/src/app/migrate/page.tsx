@@ -3,42 +3,43 @@
 import PageTitle from '@/components/PageTitle'
 import ScriptSteps from '@/components/ScriptSteps'
 import Link from 'next/link'
+import FlowSteps from '@/components/FlowSteps/FlowSteps'
 
 import { Note } from '@contentful/f36-components'
 
 export default function MigrateSchemaPage() {
   return (
-    <div>
+    <>
       <PageTitle title='Migrate Schema' />
+      <div className='flex'>
+        <div className='w-2/3'>
+          <Note variant='warning' className='mb-8'>
+            Before migration you probably edited the <Link href='/models/source'>source files</Link>{' '}
+            and <Link href='/schema/join'>joined</Link> them.
+          </Note>
 
-      <Note variant='warning' className='w-1/2 mb-8'>
-        Before migration you probably edited the{' '}
-        <Link href='/models/source'>source files</Link> and {' '}
-        <Link href='/schema/join'>joined</Link> them.
-      </Note>
+          <ScriptSteps
+            steps={[
+              {
+                title: 'Migrate schema from repo to dev',
+                command: 'pnpm tsx scripts/migrate/migrate-schema.ts repo dev'
+              },
+              {
+                title: 'Promote schema from dev to preprod *',
+                command: 'pnpm tsx scripts/migrate/migrate-schema.ts dev preprod'
+              },
+              {
+                title: 'Promote schema from preprod to master *',
+                command: 'pnpm tsx scripts/migrate/migrate-schema.ts preprod master'
+              }
+            ]}
+          />
+          <p className='mb-8'>* Reverse envs for demotion.</p>
 
-      <ScriptSteps
-        steps={[
-          {
-            title: 'Migrate schema from repo to dev',
-            command: 'pnpm tsx scripts/migrate/migrate-schema.ts repo dev'
-          },
-          {
-            title: 'Promote schema from dev to preprod *',
-            command: 'pnpm tsx scripts/migrate/migrate-schema.ts dev preprod'
-          },
-          {
-            title: 'Promote schema from preprod to master *',
-            command: 'pnpm tsx scripts/migrate/migrate-schema.ts preprod master'
-          }
-        ]}
-      />
-      <p className='mb-8'>* Reverse envs for demotion.</p>
-
-      <h2 className='pt-8 pb-4'>Example outputs from script</h2>
-      <p>A new string was added to FAQs (subtitle):</p>
-      <pre className='bg-black text-white p-4 mt-4 text-base w-2/3'>
-        {`pnpm tsx scripts/migrate/migrate-schema.ts repo dev
+          <h2 className='pt-8 pb-4'>Example outputs from script</h2>
+          <p>A new string was added to FAQs (subtitle):</p>
+          <pre className='bg-black text-white p-4 mt-4 text-base'>
+            {`pnpm tsx scripts/migrate/migrate-schema.ts repo dev
 [dotenv@17.3.1] injecting env (5) from .env
 
 Source: repo
@@ -64,10 +65,10 @@ Content types created: 0
 Content types updated: 1
 Fields added: 1
 Fields updated: 0`}
-      </pre>
-      <p className='pt-8'>The previous string was removed from FAQs (subtitle):</p>
-      <pre className='bg-black text-white p-4 mt-4 text-base w-2/3'>
-        {`pnpm tsx scripts/migrate/migrate-schema.ts repo dev
+          </pre>
+          <p className='pt-8'>The previous string was removed from FAQs (subtitle):</p>
+          <pre className='bg-black text-white p-4 mt-4 text-base'>
+            {`pnpm tsx scripts/migrate/migrate-schema.ts repo dev
 [dotenv@17.3.1] injecting env (5) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
 
 Source: repo
@@ -94,7 +95,12 @@ Content types updated: 1
 Fields added: 0
 Fields updated: 0
 Fields omitted: 1`}
-      </pre>
-    </div>
+          </pre>
+        </div>
+        <div className='w-1/3'>
+          <FlowSteps flow='toRepo' activeStep={4} />
+        </div>
+      </div>
+    </>
   )
 }

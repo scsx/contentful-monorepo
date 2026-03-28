@@ -1,0 +1,1 @@
+// Aqui os .ts vão ser passados para .json individuais.
