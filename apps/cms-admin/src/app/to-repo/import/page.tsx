@@ -18,7 +18,7 @@ export default function SchemaImportPage() {
           />
         </div>
         <div className='w-1/3'>
-          <FlowSteps flow='fromRepo' activeStep={0} />
+          <FlowSteps flow='toRepo' activeStep={0} />
         </div>
       </div>
     </>

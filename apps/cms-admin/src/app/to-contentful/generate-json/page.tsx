@@ -11,8 +11,8 @@ export default function ModelGenerationPage() {
           <ScriptSteps
             steps={[
               {
-                title: 'Generate TS types',
-                command: 'pnpm tsx scripts/migrate/delete-omitted.ts dev'
+                title: 'To create the .json model run:',
+                command: 'pnpm tsx scripts/models/generate/generate-json-models.ts'
               }
             ]}
           />
@@ -26,7 +26,7 @@ export default function ModelGenerationPage() {
           </p>
         </div>
         <div className='w-1/3'>
-          <FlowSteps flow='toRepo' activeStep={1} />
+          <FlowSteps flow='fromRepo' activeStep={1} />
         </div>
       </div>
     </>

@@ -52,7 +52,7 @@ export default function SchemaJoinPage() {
           </pre>
         </div>
         <div className='w-1/3'>
-          <FlowSteps flow='toRepo' activeStep={3} />
+          <FlowSteps flow='fromRepo' activeStep={3} />
         </div>
       </div>
     </>

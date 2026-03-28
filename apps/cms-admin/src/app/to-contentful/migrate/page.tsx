@@ -98,7 +98,7 @@ Fields omitted: 1`}
           </pre>
         </div>
         <div className='w-1/3'>
-          <FlowSteps flow='toRepo' activeStep={4} />
+          <FlowSteps flow='fromRepo' activeStep={4} />
         </div>
       </div>
     </>

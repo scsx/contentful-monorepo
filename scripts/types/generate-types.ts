@@ -1,0 +1,1 @@
+// Aqui dos .json individuais geram-se os types.

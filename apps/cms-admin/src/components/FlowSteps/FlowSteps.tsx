@@ -1,29 +1,7 @@
 'use client'
 
 import { ProgressStepper } from '@contentful/f36-components'
-
-type TFlowStep = {
-  label: string
-}
-
-type TFlowConfig = {
-  [key in 'fromRepo' | 'toRepo']: TFlowStep[]
-}
-
-const flowConfigs: TFlowConfig = {
-  fromRepo: [
-    { label: 'IMPORT from Contentful' },
-    { label: 'SPLIT full .json into files' },
-    { label: 'CREATE .ts files (needs to be done manually)' }
-  ],
-  toRepo: [
-    { label: 'SOURCE (.ts files)' },
-    { label: 'GENERATE .json files' },
-    { label: 'GENERATE TS types (from .json files)' },
-    { label: 'JOIN to schema.json' },
-    { label: 'MIGRATE (schema.json)' },
-  ]
-}
+import { navAndFlowSteps } from '@/utils/constants'
 
 type TFlowStepsProps = {
   flow: 'fromRepo' | 'toRepo'
@@ -31,14 +9,13 @@ type TFlowStepsProps = {
 }
 
 const FlowSteps = ({ flow, activeStep }: TFlowStepsProps) => {
-  const steps = flowConfigs[flow]
+  const flowConfig = navAndFlowSteps[flow]
+  const steps = flowConfig.steps
 
   return (
     <div
       style={{
-        height: `${steps.length * 60}px`,
-        display: 'flex',
-        justifyContent: 'center'
+        height: `${steps.length * 60}px`
       }}>
       <ProgressStepper
         activeStep={activeStep}
@@ -49,7 +26,7 @@ const FlowSteps = ({ flow, activeStep }: TFlowStepsProps) => {
           if (index < activeStep) state = 'complete'
           if (index === activeStep) state = 'active'
 
-          return <ProgressStepper.Step key={index} state={state} labelText={step.label} />
+          return <ProgressStepper.Step key={index} state={state} labelText={step.simpleLabel} />
         })}
       </ProgressStepper>
     </div>

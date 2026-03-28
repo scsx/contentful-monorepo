@@ -11,6 +11,9 @@ export default function ModelsPage() {
         <div className='w-2/3'>
           <div className='space-y-2'>
             <p>
+              TODO: FALTA INFO
+            </p>
+            <p>
               Source has the <code className='text-lg'>.ts</code> files to generate the final{' '}
               <code className='text-lg'>.json</code> files for schema. These are the{' '}
               <strong>actual source of truth</strong>.
@@ -47,15 +50,10 @@ export const modelName = {
 }
               `}
             </pre>
-
-            <h2 className='pt-8 pb-4'>After editing</h2>
-            <p>
-              Visit <Link href='/models/generate'>generate</Link>
-            </p>
           </div>
         </div>
         <div className='w-1/3'>
-          <FlowSteps flow='toRepo' activeStep={0} />
+          <FlowSteps flow='fromRepo' activeStep={0} />
         </div>
       </div>
     </>

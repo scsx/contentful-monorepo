@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 type RouteNode = {
   name: string
   path: string
+  number?: string
   children?: RouteNode[]
 }
 
@@ -24,6 +25,7 @@ const RenderRoutes = ({ routes }: { routes: RouteNode[] }) => {
         return (
           <li key={route.path}>
             <Link href={route.path} className={isActive ? 'bg-yellow' : ''}>
+              {route.number && <span className='font-semibold mr-2'>{route.number}</span>}
               {route.name}
             </Link>
 

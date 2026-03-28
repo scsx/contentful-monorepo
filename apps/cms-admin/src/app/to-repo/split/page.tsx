@@ -18,7 +18,7 @@ export default function SchemaSplitPage() {
           />
         </div>
         <div className='w-1/3'>
-          <FlowSteps flow='fromRepo' activeStep={1} />
+          <FlowSteps flow='toRepo' activeStep={1} />
         </div>
       </div>
     </>
