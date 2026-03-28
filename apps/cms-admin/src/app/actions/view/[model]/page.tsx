@@ -2,8 +2,7 @@ import Link from 'next/link'
 import PageTitle from '@/components/PageTitle'
 import Button from '@/components/Button'
 import { getJSONModel } from '@repo/cms-schema'
-
-import ModelsModelTabs from '@/components/page-specific/ModelsModelTabs'
+import ActionsViewModelTabs from '@/components/page-specific/ActionsViewModelTabs'
 
 type Props = {
   params: Promise<{
@@ -24,7 +23,7 @@ export default async function ModelDetailPage({ params }: Props) {
     <div>
       <PageTitle title={model} subtitle='Model (content type)' />
 
-      <ModelsModelTabs model={model} fields={json.model.fields} />
+      <ActionsViewModelTabs model={model} fields={json.model.fields} />
 
       <div className='flex space-x-8'>
         <pre className='w-2/3 bg-white p-4'>{JSON.stringify(json, null, 2)}</pre>
@@ -32,7 +31,7 @@ export default async function ModelDetailPage({ params }: Props) {
           <Button isDisabled>Edit Model</Button>
           <p>
             To be implemented. Check{' '}
-            <Link href='/models/create' className='text-lg'>
+            <Link href='/to-repo/create' className='text-lg'>
               Model Builder
             </Link>{' '}
             for more info

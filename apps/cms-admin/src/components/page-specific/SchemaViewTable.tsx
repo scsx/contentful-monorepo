@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { Table } from '@contentful/f36-components'
 import { XIcon, CheckIcon } from '@contentful/f36-icons'
 import ContentfulTypeMapping from '@/components/ContentfulTypeMapping'
@@ -40,52 +41,56 @@ const SchemaViewTable = ({ contentTypes }: Props) => {
 
   return (
     <div className='flex space-x-8'>
-      <Table>
-        <Table.Head>
-          <Table.Row>
-            <Table.Cell>Name</Table.Cell>
-            <Table.Cell>Field name</Table.Cell>
-            <Table.Cell>Field id</Table.Cell>
-            <Table.Cell>Type</Table.Cell>
-            <Table.Cell>Required</Table.Cell>
-            <Table.Cell>Localized</Table.Cell>
-          </Table.Row>
-        </Table.Head>
-        <Table.Body>
-          {contentTypes.map((ct: any) => (
-            <React.Fragment key={ct.id}>
-              <Table.Row>
-                <Table.Cell colSpan={6}>
-                    <code className='modelname text-xl'>{ct.id}</code>
-                  <p className='text-base mt-2'>
-                    <strong>{ct.name}</strong>
-                  </p>
-                  <em>{ct.description ?? ''}</em>
-                </Table.Cell>
-              </Table.Row>
-
-              {Array.isArray(ct.fields) && ct.fields.length > 0 ? (
-                ct.fields.map((f: any) => (
-                  <Table.Row key={`${ct.id}-${f.id}`}>
-                    <Table.Cell></Table.Cell>
-                    <Table.Cell>
-                      <strong>{f.name}</strong>
-                    </Table.Cell>
-                    <Table.Cell>{f.id}</Table.Cell>
-                    <Table.Cell>{getFieldType(f)}</Table.Cell>
-                    <Table.Cell>{f.required ? <CheckIcon /> : <XIcon />}</Table.Cell>
-                    <Table.Cell>{f.localized ? <CheckIcon /> : <XIcon />}</Table.Cell>
-                  </Table.Row>
-                ))
-              ) : (
+      <div className='w-2/3'>
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.Cell>Name</Table.Cell>
+              <Table.Cell>Field name</Table.Cell>
+              <Table.Cell>Field id</Table.Cell>
+              <Table.Cell>Type</Table.Cell>
+              <Table.Cell>Required</Table.Cell>
+              <Table.Cell>Localized</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {contentTypes.map((ct: any) => (
+              <React.Fragment key={ct.id}>
                 <Table.Row>
-                  <Table.Cell colSpan={6}>No fields</Table.Cell>
+                  <Table.Cell colSpan={6}>
+                    <Link href={`/actions/view/${ct.id}`}>
+                      <code className='modelname text-xl'>{ct.id}</code>
+                    </Link>
+                    <p className='text-base mt-2'>
+                      <strong>{ct.name}</strong>
+                    </p>
+                    <em>{ct.description ?? ''}</em>
+                  </Table.Cell>
                 </Table.Row>
-              )}
-            </React.Fragment>
-          ))}
-        </Table.Body>
-      </Table>
+
+                {Array.isArray(ct.fields) && ct.fields.length > 0 ? (
+                  ct.fields.map((f: any) => (
+                    <Table.Row key={`${ct.id}-${f.id}`}>
+                      <Table.Cell></Table.Cell>
+                      <Table.Cell>
+                        <strong>{f.name}</strong>
+                      </Table.Cell>
+                      <Table.Cell>{f.id}</Table.Cell>
+                      <Table.Cell>{getFieldType(f)}</Table.Cell>
+                      <Table.Cell>{f.required ? <CheckIcon /> : <XIcon />}</Table.Cell>
+                      <Table.Cell>{f.localized ? <CheckIcon /> : <XIcon />}</Table.Cell>
+                    </Table.Row>
+                  ))
+                ) : (
+                  <Table.Row>
+                    <Table.Cell colSpan={6}>No fields</Table.Cell>
+                  </Table.Row>
+                )}
+              </React.Fragment>
+            ))}
+          </Table.Body>
+        </Table>
+      </div>
       <ContentfulTypeMapping />
     </div>
   )

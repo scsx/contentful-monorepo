@@ -9,12 +9,12 @@ type TField = {
   type: string
 }
 
-type TModelsModelTabsProps = {
+type TActionsViewModelTabsProps = {
   model: string
   fields: TField[]
 }
 
-const ModelsModelTabs = ({ model, fields }: TModelsModelTabsProps) => {
+const ActionsViewModelTabs = ({ model, fields }: TActionsViewModelTabsProps) => {
   console.log(fields)
   const fieldSteps = fields.map((field) => ({
     title: field.id,
@@ -50,4 +50,4 @@ const ModelsModelTabs = ({ model, fields }: TModelsModelTabsProps) => {
   )
 }
 
-export default ModelsModelTabs
+export default ActionsViewModelTabs
