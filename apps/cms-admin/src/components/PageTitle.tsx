@@ -5,9 +5,9 @@ type PageTitleProps = {
 
 export default function PageTitle({ title, subtitle }: PageTitleProps) {
   return (
-    <div className='pagetitle'>
-      <h2 className=''>{title}</h2>
-      {subtitle && <p>{subtitle}</p>}
+    <div className='pagetitle mb-8'>
+      <h2>{title}</h2>
+      {subtitle && <p className='font-bold text-blue-darker'>{subtitle}</p>}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { navAndFlowSteps } from '@/utils/constants'
 
 // File to make the sidebar navigation dynamically.
 
@@ -21,6 +22,38 @@ function slugToTitle(slug: string): string {
     .join(' ')
 }
 
+// Extract number from numberedLabel (e.g., "1.1 IMPORT from Contentful" -> "1.1")
+function extractNumberFromLabel(label: string): string {
+  const match = label.match(/^(\d+(?:\.\d+)?)\s/)
+  return match ? match[1] : ''
+}
+
+// Get number from constants by path
+function getNumberFromConstants(routePath: string): string | undefined {
+  const pathParts = routePath.split('/').filter(Boolean)
+  if (pathParts.length === 0) return undefined
+
+  const firstLevel = pathParts[0]
+  const secondLevel = pathParts[1]
+
+  // Try to find in constants
+  const config = Object.values(navAndFlowSteps).find((flow: any) => flow.path === `/${firstLevel}`)
+  if (!config) return undefined
+
+  if (!secondLevel) {
+    // Main level - extract from numberedLabel
+    return extractNumberFromLabel((config as any).numberedLabel)
+  }
+
+  // Sub-level - find in steps
+  const step = (config as any).steps?.find((s: any) => s.path === routePath)
+  if (step) {
+    return extractNumberFromLabel(step.numberedLabel)
+  }
+
+  return undefined
+}
+
 // Define order priority for main routes
 const routeOrder: Record<string, number> = {
   'to-repo': 1,
@@ -39,9 +72,10 @@ const subRouteOrder: Record<string, Record<string, number>> = {
   },
   'to-contentful': {
     source: 1,
-    'generate-json': 2,
-    join: 3,
-    migrate: 4
+    stringify: 2,
+    typify: 3,
+    join: 4,
+    migrate: 5
   },
   actions: {
     view: 1,
@@ -56,7 +90,7 @@ const subRouteOrder: Record<string, Record<string, number>> = {
   }
 }
 
-function readRoutes(dir: string, basePath = '', parentNumber = ''): RouteNode[] {
+function readRoutes(dir: string, basePath = ''): RouteNode[] {
   const entries = fs.readdirSync(dir, { withFileTypes: true })
 
   const routes: RouteNode[] = []
@@ -81,7 +115,7 @@ function readRoutes(dir: string, basePath = '', parentNumber = ''): RouteNode[] 
 
     const hasPage = fs.existsSync(path.join(fullPath, 'page.tsx'))
 
-    const children = readRoutes(fullPath, routePath, '')
+    const children = readRoutes(fullPath, routePath)
 
     if (hasPage || children.length > 0) {
       routes.push({
@@ -109,16 +143,20 @@ function readRoutes(dir: string, basePath = '', parentNumber = ''): RouteNode[] 
     return aPriority - bPriority
   })
 
-  // Add numbering to routes
-  routes.forEach((route, index) => {
-    const number = index + 1
-    route.number = parentNumber ? `${parentNumber}.${number}` : `${number}`
+  // Add numbering to routes from constants
+  routes.forEach((route) => {
+    const number = getNumberFromConstants(route.path)
+    if (number) {
+      route.number = number
+    }
 
-    // Add numbering to children
+    // Add numbering to children from constants
     if (route.children) {
-      route.children.forEach((child, childIndex) => {
-        const childNumber = childIndex + 1
-        child.number = `${route.number}.${childNumber}`
+      route.children.forEach((child) => {
+        const childNumber = getNumberFromConstants(child.path)
+        if (childNumber) {
+          child.number = childNumber
+        }
       })
     }
   })

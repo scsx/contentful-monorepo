@@ -5,13 +5,13 @@ import FlowSteps from '@/components/FlowSteps/FlowSteps'
 export default function ModelGenerationPage() {
   return (
     <>
-      <PageTitle title='Generate from source' />
+      <PageTitle title='Stringify' subtitle='Generate from source' />
       <div className='flex'>
         <div className='w-2/3'>
           <ScriptSteps
             steps={[
               {
-                title: 'To create the .json model run:',
+                title: 'Generate .json models from your .ts source files with:',
                 command: 'pnpm tsx scripts/models/generate/generate-json-models.ts'
               }
             ]}

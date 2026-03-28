@@ -19,6 +19,7 @@ export default function SchemaImportPage() {
               }
             ]}
           />
+          <p className="mt-8 text-lg">Downloads your content model from Contentful into a local JSON file.</p>
         </div>
         <div className='w-1/3'>
           <FlowSteps flow='toRepo' activeStep={0} />

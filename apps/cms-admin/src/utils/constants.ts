@@ -37,15 +37,15 @@ export const navAndFlowSteps = {
         step: 0
       },
       {
-        numberedLabel: '2.2 GENERATE (.json files)',
-        simpleLabel: 'GENERATE (*.ts to *.json)',
-        path: '/to-contentful/generate-json',
+        numberedLabel: '2.2 STRINGIFY (.json files)',
+        simpleLabel: 'STRINGIFY (*.ts to *.json)',
+        path: '/to-contentful/stringify',
         step: 1
       },
       {
-        numberedLabel: '2.3 GENERATE (TS types)',
-        simpleLabel: 'GENERATE (*.json to types.ts)',
-        path: '/to-contentful/generate-ts',
+        numberedLabel: '2.3 TYPIFY (TS types)',
+        simpleLabel: 'TYPIFY (*.json to types.ts)',
+        path: '/to-contentful/typify',
         step: 2
       },
       {
