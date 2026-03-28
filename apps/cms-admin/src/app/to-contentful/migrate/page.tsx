@@ -2,7 +2,6 @@
 
 import PageTitle from '@/components/PageTitle'
 import ScriptSteps from '@/components/ScriptSteps'
-import Link from 'next/link'
 import FlowSteps from '@/components/FlowSteps'
 
 import { Note } from '@contentful/f36-components'
