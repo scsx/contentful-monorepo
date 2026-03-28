@@ -1,13 +1,16 @@
 import PageTitle from '@/components/PageTitle'
 import ScriptSteps from '@/components/ScriptSteps'
 import FlowSteps from '@/components/FlowSteps/FlowSteps'
+import FromCtfToRepoNote from '@/components/FromCtfToRepoNote'
 
 export default function SchemaImportPage() {
   return (
     <>
-      <PageTitle title='Import Schema' subtitle='Use once in a lifetime' />
+      <PageTitle title='Import Schema' />
       <div className='flex'>
         <div className='w-2/3'>
+          <FromCtfToRepoNote />
+          <div className='my-8'></div>
           <ScriptSteps
             steps={[
               {

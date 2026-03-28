@@ -1,6 +1,7 @@
 import PageTitle from '@/components/PageTitle'
 import ScriptSteps from '@/components/ScriptSteps'
 import FlowSteps from '@/components/FlowSteps/FlowSteps'
+import FromCtfToRepoNote from '@/components/FromCtfToRepoNote'
 
 export default function SchemaSplitPage() {
   return (
@@ -8,6 +9,8 @@ export default function SchemaSplitPage() {
       <PageTitle title='Split Schema' subtitle='Should almost never be used' />
       <div className='flex'>
         <div className='w-2/3'>
+          <FromCtfToRepoNote />
+          <div className='my-8'></div>
           <ScriptSteps
             steps={[
               {
