@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import PageTitle from '@/components/PageTitle'
 import Button from '@/components/Button'
-import FlowSteps from '@/components/FlowSteps/FlowSteps'
-import { TextInput } from '@contentful/f36-components'
+import FlowSteps from '@/components/FlowSteps'
+import { TextInput, Note } from '@contentful/f36-components'
 
 export default function ModelBuilderPage() {
   const [modelName, setModelName] = useState('largeHero')
@@ -38,12 +38,18 @@ export default function ModelBuilderPage() {
 
   return (
     <>
-      <PageTitle title='Model Builder (Experimental)' subtitle='Draft' />
+      <PageTitle title='Model Builder' subtitle='Experimental' />
+
       <div className='flex'>
         <div className='w-2/3'>
-          <div className='flex flex-col'>
+          <Note title='To be determined & implemented' variant='neutral'>
+            This is an idea to edit the .ts files in source here and copy/paste. Still being thought
+            through and implemented. For now this work is manual.
+          </Note>
+
+          <div className='flex flex-col mt-8'>
             <div>
-              <label>Model name</label>
+              <h3 className='mt-4'>Model name</h3>
               <TextInput
                 value={modelName}
                 onChange={(e) => setModelName(e.target.value)}

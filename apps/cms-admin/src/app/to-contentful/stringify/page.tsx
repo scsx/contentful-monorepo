@@ -1,6 +1,6 @@
 import PageTitle from '@/components/PageTitle'
 import ScriptSteps from '@/components/ScriptSteps'
-import FlowSteps from '@/components/FlowSteps/FlowSteps'
+import FlowSteps from '@/components/FlowSteps'
 
 export default function ModelGenerationPage() {
   return (
@@ -11,19 +11,20 @@ export default function ModelGenerationPage() {
           <ScriptSteps
             steps={[
               {
-                title: 'Generate .json models from your .ts source files with:',
+                title: 'Generate .json models from the .ts source files with:',
                 command: 'pnpm tsx scripts/models/generate/generate-json-models.ts'
               }
             ]}
           />
-          <p className='mb-4'>
-            After editing the .ts files - single source of truth - run the script to generate the
-            corresponding .json files.
+          <p className='mb-4 text-lg'>
+            After editing the .ts files (single source of truth), run the script to generate the
+            corresponding .json files to{' '}
+            <code className='text-lg'>
+              <b>\packages\cms-schema\src\schema\models</b>
+            </code>
+            .
           </p>
-          <p className='mb-4'>
-            Deleted files will be deleted in the json folder{' '}
-            <code className='text-lg'>\packages\cms-schema\src\schema\models</code>.
-          </p>
+          <p className='mb-4 text-lg'>Deleted .ts files will be deleted in the target folder.</p>
         </div>
         <div className='w-1/3'>
           <FlowSteps flow='fromRepo' activeStep={1} />

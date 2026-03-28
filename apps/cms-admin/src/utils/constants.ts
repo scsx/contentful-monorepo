@@ -1,7 +1,7 @@
 export const navAndFlowSteps = {
   toRepo: {
-    numberedLabel: '1. TO REPO',
-    simpleLabel: 'TO REPO',
+    numberedLabel: '1. To Repo',
+    simpleLabel: 'To Repo',
     path: '/to-repo',
     steps: [
       {
@@ -26,8 +26,8 @@ export const navAndFlowSteps = {
   },
 
   fromRepo: {
-    numberedLabel: '2. TO CONTENTFUL',
-    simpleLabel: 'TO CONTENTFUL',
+    numberedLabel: '2. To Contentful',
+    simpleLabel: 'To Contentful',
     path: '/to-contentful',
     steps: [
       {

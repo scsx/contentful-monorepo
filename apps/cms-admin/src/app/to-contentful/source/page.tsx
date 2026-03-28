@@ -1,25 +1,22 @@
 import PageTitle from '@/components/PageTitle'
 import ScriptSteps from '@/components/ScriptSteps'
 import Link from 'next/link'
-import FlowSteps from '@/components/FlowSteps/FlowSteps'
+import FlowSteps from '@/components/FlowSteps'
 
 export default function ModelsPage() {
   return (
     <>
-      <PageTitle title='Source Models' />
+      <PageTitle title='Source Models' subtitle='Edited manually' />
       <div className='flex'>
         <div className='w-2/3'>
           <div className='space-y-2'>
-            <p>
-              TODO: FALTA INFO
-            </p>
-            <p>
+            <p className='text-lg'>
               Source has the <code className='text-lg'>.ts</code> files to generate the final{' '}
               <code className='text-lg'>.json</code> files for schema. These are the{' '}
               <strong>actual source of truth</strong>.
             </p>
-            <p>Files have the following structure:</p>
-            <pre className='bg-white p-2'>
+            <h2 className='mt-8'>Base structure</h2>
+            <pre className='bg-white py-2 px-4 text-base'>
               {`
 export const modelName = {
   schema: {
@@ -36,15 +33,19 @@ export const modelName = {
     }
   },
   editorInterface: {
-    // Editor Interface — how fields appear in the editor (help text, appearance, widget, aspect ratio, etc)
+    // How fields appear in the editor (help text, appearance, widget, etc)
     fieldId: {
       helpText: 'Help text',
-      widget: 'radio'
+      widget: 'colorPicker'
     }
+  },
+  taxonomy: {
+    // Maybe mandatory, TBD
+    ...
   },
   app: {
     sidebar: {
-      // To be read by the Contentful App (contentful-app)
+      // To be read by the Contentful App (contentful-monorepo/apps/contentful-app)
     }
   }
 }

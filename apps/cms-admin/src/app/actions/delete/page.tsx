@@ -24,13 +24,13 @@ export default function MigrateSchemaPage() {
       </p>
 
       <h2 className='pt-8 pb-4'>Example output from script</h2>
-      <pre className='bg-black text-white p-4 mt-4 text-base w-2/3'>
+       className='bg-black text-white p-4 mt-4 text-base w-2/3'>
         {`
 [dotenv@17.3.1] injecting env (7) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
 Delete field: genericContentColumnsItem.descriptionTest
 Delete field: genericContentColumnsItem.subtitleTest
         `}
-      </pre>
+      </pre><pre
     </div>
   )
 }

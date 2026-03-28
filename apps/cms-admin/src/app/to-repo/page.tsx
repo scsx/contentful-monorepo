@@ -1,7 +1,7 @@
 'use client'
 
 import PageTitle from '@/components/PageTitle'
-import FlowSteps from '@/components/FlowSteps/FlowSteps'
+import FlowSteps from '@/components/FlowSteps'
 import FromCtfToRepoNote from '@/components/FromCtfToRepoNote'
 
 export default function ToRepoPage() {

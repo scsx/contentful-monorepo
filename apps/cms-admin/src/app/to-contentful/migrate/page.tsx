@@ -3,7 +3,7 @@
 import PageTitle from '@/components/PageTitle'
 import ScriptSteps from '@/components/ScriptSteps'
 import Link from 'next/link'
-import FlowSteps from '@/components/FlowSteps/FlowSteps'
+import FlowSteps from '@/components/FlowSteps'
 
 import { Note } from '@contentful/f36-components'
 
@@ -13,9 +13,8 @@ export default function MigrateSchemaPage() {
       <PageTitle title='Migrate Schema' />
       <div className='flex'>
         <div className='w-2/3'>
-          <Note variant='warning' className='mb-8'>
-            Before migration you probably edited the <Link href='/models/source'>source files</Link>{' '}
-            and <Link href='/schema/join'>joined</Link> them.
+          <Note variant='warning' className='mb-8 w-2/3'>
+            Make sure you&apos;ve done all previous steps before migration.
           </Note>
 
           <ScriptSteps

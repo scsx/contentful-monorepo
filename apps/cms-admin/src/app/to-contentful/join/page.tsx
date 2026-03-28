@@ -1,21 +1,32 @@
+'use client'
+
 import PageTitle from '@/components/PageTitle'
 import ScriptSteps from '@/components/ScriptSteps'
-import FlowSteps from '@/components/FlowSteps/FlowSteps'
+import FlowSteps from '@/components/FlowSteps'
+import { Note } from '@contentful/f36-components'
 
 export default function SchemaJoinPage() {
   return (
     <>
-      <PageTitle title='Join Schema' subtitle='' />
+      <PageTitle
+        title='Join'
+        subtitle='Generate final schema.json from individual model files (.json)'
+      />
       <div className='flex'>
         <div className='w-2/3'>
           <ScriptSteps
             steps={[
               {
-                title: 'Generate final schema.json from individual model files (.json) with:',
+                title: 'Run:',
                 command: 'pnpm tsx scripts/schema/join/join-files-into-schema.ts'
               }
             ]}
           />
+
+          <Note title='Deleting .json files' variant='neutral'>
+            The next examples are legacy and cautionary. The checks when deleting models and their
+            references will have to have been done previously, in the .ts files.
+          </Note>
 
           <h2 className='pt-8 pb-4'>Example output when deleting referenced models</h2>
           <p>
