@@ -1,1 +1,0 @@
-This folder should follow the same structure as contentful-monorepo\scripts
