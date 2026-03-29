@@ -16,15 +16,14 @@ type Props = {
 
 const RenderRoutes = ({ routes }: { routes: RouteNode[] }) => {
   const pathname = usePathname()
+  console.log('Current pathname:', pathname)
 
   return (
     <ul>
       {routes.map((route) => {
-        // Exact match OR direct child only (not grandchildren)
-        const isDirectChild =
-          pathname.startsWith(route.path + '/') &&
-          !pathname.slice(route.path.length + 1).includes('/')
-        const isActive = pathname === route.path || isDirectChild
+        const isActive =
+          pathname === route.path ||
+          (route.path === '/actions/view' && pathname.startsWith('/actions/view/'))
 
         return (
           <li key={route.path}>
