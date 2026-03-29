@@ -15,7 +15,6 @@ type TActionsViewModelTabsProps = {
 }
 
 const ActionsViewModelTabs = ({ model, fields }: TActionsViewModelTabsProps) => {
-  console.log(fields)
   const fieldSteps = fields.map((field) => ({
     title: field.id,
     command: `pnpm tsx scripts/models/model/find-field-usages.ts ${model}.${field.id} dev`

@@ -20,7 +20,11 @@ const RenderRoutes = ({ routes }: { routes: RouteNode[] }) => {
   return (
     <ul>
       {routes.map((route) => {
-        const isActive = pathname === route.path
+        // Exact match OR direct child only (not grandchildren)
+        const isDirectChild =
+          pathname.startsWith(route.path + '/') &&
+          !pathname.slice(route.path.length + 1).includes('/')
+        const isActive = pathname === route.path || isDirectChild
 
         return (
           <li key={route.path}>
